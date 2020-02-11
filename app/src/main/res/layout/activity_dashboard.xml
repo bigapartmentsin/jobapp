@@ -291,24 +291,24 @@
     </RelativeLayout>
 
 
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/pager"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_below="@id/chatMenu">-->
-
-<!--    </androidx.viewpager.widget.ViewPager>-->
-
-
-
-
-    <FrameLayout
-
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:id="@+id/container"
-        android:layout_below="@id/chatMenu"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/chatMenu">
 
-    </FrameLayout>
+    </androidx.viewpager.widget.ViewPager>
+
+
+
+
+<!--    <FrameLayout-->
+
+<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/container"-->
+<!--        android:layout_below="@id/chatMenu"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--    </FrameLayout>-->
 
 </RelativeLayout>

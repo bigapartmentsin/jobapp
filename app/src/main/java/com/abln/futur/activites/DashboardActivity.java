@@ -60,6 +60,7 @@ import com.abln.futur.common.UIUtility;
 import com.abln.futur.common.models.AccountOne;
 import com.abln.futur.common.models.UserData;
 import com.abln.futur.common.postjobs.post;
+import com.abln.futur.customViews.FragmentAdapter;
 import com.abln.futur.interfaces.NetworkOperation;
 import com.abln.futur.interfaces.TaskCompleteListener;
 import com.abln.futur.listeners.ProgressRequestBody;
@@ -193,8 +194,8 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
     @BindView(R.id.home_location_tag)
     TextView homelocationTag;
 
-//    @BindView(R.id.pager)
-//    ViewPager viewPager;
+    @BindView(R.id.pager)
+    ViewPager viewPager;
 
 
     private int REQUEST_CAMERA = 000, SELECT_FILE = 222;
@@ -270,35 +271,35 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
         globalFragment = new GlobalFragment();
         accountFragment = new AccountFragment();
 
-        mfragments = new Fragment[]{chatsFragment,globalFragment,accountFragment};
+      //  mfragments = new Fragment[]{chatsFragment,globalFragment,accountFragment};
 
 
-//        fragmentArrayList = new ArrayList<>();
-//        fragmentArrayList.add(chatsFragment);
-//        fragmentArrayList.add(globalFragment);
-//        fragmentArrayList.add(accountFragment);
+        fragmentArrayList = new ArrayList<>();
+        fragmentArrayList.add(chatsFragment);
+        fragmentArrayList.add(globalFragment);
+        fragmentArrayList.add(accountFragment);
 
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container,chatsFragment)
-                .add(R.id.container,globalFragment)
-                .add(R.id.container,accountFragment)
+//        getSupportFragmentManager().beginTransaction()
+//                .add(R.id.container,chatsFragment)
+//                .add(R.id.container,globalFragment)
+//                .add(R.id.container,accountFragment)
+//
+//                .hide(chatsFragment)
+//                .hide(accountFragment)
+//                .show(globalFragment).commit();
 
-                .hide(chatsFragment)
-                .hide(accountFragment)
-                .show(globalFragment).commit();
 
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this, fragmentArrayList);
 
-      //  FragmentAdapter fragmentAdapter = new FragmentAdapter(this, fragmentArrayList);
-
-//        viewPager.setAdapter(fragmentAdapter);
-//        selectTab(0);
-//        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-//            @Override
-//            public void onPageSelected(int position) {
-//                selectTab(position);
-//            }
-//        });
+        viewPager.setAdapter(fragmentAdapter);
+        selectTab(0);
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                selectTab(position);
+            }
+        });
 
 
 
@@ -609,18 +610,18 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
         }
 
 
-        if (currentTabIndex != index) {
-            FragmentTransaction trx = getSupportFragmentManager()
-                    .beginTransaction();
-            trx.hide(mfragments[currentTabIndex]);
-            if (!mfragments[index].isAdded()) {
-                trx.add(R.id.container, mfragments[index]);
-            }
-            trx.show(mfragments[index]).commit();
-        }
-        currentTabIndex = index;
+//        if (currentTabIndex != index) {
+//            FragmentTransaction trx = getSupportFragmentManager()
+//                    .beginTransaction();
+//            trx.hide(mfragments[currentTabIndex]);
+//            if (!mfragments[index].isAdded()) {
+//                trx.add(R.id.container, mfragments[index]);
+//            }
+//            trx.show(mfragments[index]).commit();
+//        }
+//        currentTabIndex = index;
 
-       // viewPager.setCurrentItem(position);
+       viewPager.setCurrentItem(position);
     }
 
 
@@ -785,13 +786,13 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
 
 
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
-        fragment.onActivityResult(requestCode, resultCode, data);
-
-
-//        int currentItem = viewPager.getCurrentItem();
-//        Fragment fragment = fragmentArrayList.get(currentItem);
+//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.container);
 //        fragment.onActivityResult(requestCode, resultCode, data);
+
+
+        int currentItem = viewPager.getCurrentItem();
+        Fragment fragment = fragmentArrayList.get(currentItem);
+        fragment.onActivityResult(requestCode, resultCode, data);
 
 
         if ((requestCode == PLACE_PICKER_REQUEST) && (resultCode == RESULT_OK)) {
