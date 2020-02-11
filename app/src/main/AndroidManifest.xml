@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.abln.futur">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+
+
+    <application
+        android:name=".common.AppConfig"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup,android:icon">
+
+
+        <activity android:name=".activites.chatHandler.ChatHandlerActivity">
+
+
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".utils.Pdfviewer">
+
+
+
+        </activity>
+
+        <activity android:name=".utils.NetworkPdfviewr">
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".common.newview.DataView"
+            android:screenOrientation="portrait"
+            >
+
+        </activity>
+
+        <activity android:name=".utils.DataChange"></activity>
+        <activity android:name=".RandomAct">
+
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".stories.PlayerData"
+
+            android:screenOrientation="portrait"
+            >
+
+
+        </activity>
+
+        <activity android:name=".common.Stories"
+            android:screenOrientation="portrait"
+            >
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".activites.StoriesActivity"
+            android:screenOrientation="portrait">
+
+
+
+        </activity>
+
+
+        <activity android:name=".activites.DemoImageRotation">
+
+
+
+
+
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!--
+
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+
+        -->
+        <activity android:name=".activites.TestThumbnail"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".activites.Demo">
+
+        </activity>
+        <activity
+            android:name=".module.global.activities.SendJobInvite"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.job.activities.MyJobPostsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.global.activities.NonJobSeekerSearchResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.global.activities.JobSeekerSearchResultActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.account.activities.CreateJobPostActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.account.activities.OthersAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.account.activities.ProfessionDetailsAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.account.activities.BasicDetailsAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activites.DashboardActivity"
+
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".module.login.PreLoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.login.SignUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".common.NewJobPost"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".module.login.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activites.SplashActivity"
+            android:theme="@style/full_screen"
+            android:screenOrientation="portrait"
+            >
+
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity android:name=".activites.TestingDataConnection">
+
+
+
+        </activity>
+
+        <activity android:name=".activites.Analytics">
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".activites.ListApplicataints">
+
+
+
+
+        </activity>
+
+        <activity android:name=".activites.TestDateActivity">
+
+
+
+
+        </activity>
+
+        <activity android:name=".activites.RenderPdfView">
+
+
+
+
+        </activity>
+
+
+        <activity android:name=".activites.PdfViewer">
+
+        </activity>
+
+
+
+        <activity android:name=".common.models.model">
+
+
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activites.EULAActivity" />
+        <activity android:name=".common.UCEDefaultActivity" />
+        <activity android:name=".activites.BaseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DuplicateActivity" />
+        <activity
+            android:name=".module.global.activities.MapsActivity"
+            android:label="Maps" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="688c39dfc4faaaf61bb6869f827a26b7be5cbfdd" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
+        <provider
+            android:name=".utils.GenericFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <receiver android:name=".common.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".services.NetworkOperationService"
+            android:enabled="true"
+            android:exported="false"
+            android:stopWithTask="false" />
+        <service
+            android:name=".firebase.FCMMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:orderInCategory="1"
+        android:title=""
+        app:showAsAction="always"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/close"
+        android:orderInCategory="2"
+        android:title=""
+        android:icon="@drawable/ic_menu_close"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/pin"
+        android:title=""
+        android:visible="true"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_menu_pin"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/delete"
+        android:title=""
+        android:icon="@drawable/ic_menu_trash"
+        android:orderInCategory="4"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/inbox"
+        android:orderInCategory="5"
+        android:title=""
+        android:icon="@drawable/ic_menu_inbox"
+        app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/overflow"
+        android:title=""
+        android:icon="@drawable/ic_menu_overflow"
+        android:orderInCategory="6"
+        app:showAsAction="always" />
+
+
+</menu>

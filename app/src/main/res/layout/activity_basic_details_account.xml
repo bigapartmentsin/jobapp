@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_source"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".module.login.LoginActivity"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/main_basic_source"
+
+        android:background="@drawable/basic_details_top"
+        android:layout_height="100dp">
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        android:weightSum="8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/back_sec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:id="@+id/back_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/sfprotextregular"
+                    android:text=""
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/back_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/back_arrow"
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ic_arrow_left_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cancle_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="14dp"
+                    android:fontFamily="@font/sfprotextsemibold"
+                    android:text=""
+                    android:background="@drawable/ic_menu_overflow"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#4A368D"
+                android:text="@string/BasicDetails"
+                android:layout_gravity="bottom"
+
+                android:paddingStart="10dp"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:id="@+id/name_text_input"
+
+                android:layout_width="312dp"
+
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/ic_full_name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <EditText
+                    android:id="@+id/name_edit_text"
+                    android:layout_width="match_parent"
+                    android:paddingStart="10dp"
+                    android:layout_height="55dp"
+                    android:inputType="text"
+                    android:background="@null"
+                   />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:background="@drawable/ic_rectangle_male"
+            android:orientation="horizontal"
+            >
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Male"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:padding="20dp"
+                android:textColor="@color/gender_default_text"
+                android:id="@+id/male"
+                android:layout_gravity="center"/>
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:padding="20dp"
+                android:text="Female"
+android:textColor="@color/gender_default_text"
+                android:id="@+id/female"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/jobLocation"
+
+                android:layout_width="350dp"
+                android:layout_height="90dp"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="@drawable/job_location"
+               >
+
+                <TextView
+                    android:id="@+id/jobLocationtext"
+                    android:layout_width="180dp"
+
+                    android:layout_height="wrap_content"
+                    android:text="Home Location"
+
+                    android:layout_weight="3"
+                    android:ellipsize="end"
+                    android:paddingTop="28dp"
+                    android:layout_marginLeft="50dp"
+                    android:maxLines="1"
+                    android:textColor="#594d77"
+                    android:textSize="14sp"
+                    android:paddingLeft="10dp"
+                   />
+
+
+
+
+            </LinearLayout>
+
+
+<!--        </LinearLayout>-->
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:autoSizeMinTextSize="10sp"
+            android:singleLine="true"
+            android:text="@string/add_your_currentLocation"
+            android:textColor="#88A1AC"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_gender"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_weight=".65"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_margin="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/gender_edit_text"
+                    android:layout_width="match_parent"
+                    android:paddingStart="10dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:text="@string/Transgender"
+                    android:enabled="false"
+                    android:maxLength="15"
+                    android:hint="@string/Gender" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/next"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:visibility="gone"
+        android:background="@color/colorPurple"
+        android:tag="true"
+        android:text="@string/Next"
+        android:textColor="@color/color_white"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"/>
+
+
+
+
+</RelativeLayout>
+
+

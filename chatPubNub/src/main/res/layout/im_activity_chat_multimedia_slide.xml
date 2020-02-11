@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/im_black_90_alpha">
+
+
+    <com.abln.chat.utils.IMViewPager
+        android:id="@+id/im_vp_image_slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/im_black_90_alpha">
+    </com.abln.chat.utils.IMViewPager>
+
+    <include
+        layout="@layout/im_toolbar"/>
+</FrameLayout>

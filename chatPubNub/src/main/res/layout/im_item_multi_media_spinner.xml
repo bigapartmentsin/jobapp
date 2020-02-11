@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView
+    style="@style/im_alert_dialog_theme"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/p_50_t_50"
+    android:drawableLeft="?android:attr/listChoiceIndicatorSingle"
+    android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+    android:ellipsize="marquee"
+    android:gravity="center"
+    android:maxLines="1"
+    android:paddingLeft="@dimen/p_10_t_10"
+    android:textSize="@dimen/p_16_t_16"/>

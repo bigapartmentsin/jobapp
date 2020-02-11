@@ -1,0 +1,87 @@
+<manifest package="com.abln.chat"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS"/>
+
+    <application android:allowBackup="false">
+
+        <activity android:name=".utils.PdfViewer">
+
+        </activity>
+
+        <activity android:name="com.abln.chat.ui.activities.IMBaseActivity"/>
+
+        <activity
+            android:name="com.abln.chat.ui.activities.IMChatThreadListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme"/>
+
+        <activity
+            android:name="com.abln.chat.ui.activities.IMChatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme"/>
+
+        <activity
+            android:name="com.abln.chat.ui.activities.IMChatMessageInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme"/>
+
+        <activity
+            android:name="com.abln.chat.ui.activities.IMChatThreadInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme"/>
+
+        <activity
+            android:name="com.abln.chat.ui.activities.IMChatUserListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme"/>
+
+        <activity
+            android:name="com.abln.chat.ui.activities.IMChatMultiMediaSlideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/IMTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+
+        <activity android:name=".ui.activities.MapsActivity"
+            android:screenOrientation="portrait"/>
+
+        <service
+            android:name="com.abln.chat.ui.gcm.IMChatMultiMediaUploadDownloadService"
+            android:enabled="true"
+            android:stopWithTask="false"/>
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true"/>
+
+        <receiver android:name="com.abln.chat.ui.gcm.DeviceTimeChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+    </application>
+
+</manifest>

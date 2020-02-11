@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_source"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/main_basic_source"
+        android:background="@drawable/top_nav"
+        android:layout_height="100dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/totalnumber"
+            android:layout_marginTop="75dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/black_overlay"
+            android:text=""
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/base"
+        android:weightSum="8">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/root_base"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/back_sec"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:id="@+id/back_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/sfprotextregular"
+                    android:text=""
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/back_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/back_arrow"
+                    android:layout_width="18dp"
+                    android:layout_height="15dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ic_arrow_left_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                 />
+
+                <TextView
+                    android:id="@+id/cancle_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="14dp"
+                    android:fontFamily="@font/sfprotextsemibold"
+                    android:text=""
+                    android:background="@drawable/ic_menu_overflow"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="100dp"
+        android:id="@+id/viewapplication"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content">
+
+
+
+
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+</RelativeLayout>
+
+

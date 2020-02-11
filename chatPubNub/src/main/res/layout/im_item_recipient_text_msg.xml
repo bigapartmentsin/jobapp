@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/im_ll_user_text_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/p_15_t_15"
+        android:background="@drawable/im_bg_msg_recipient"
+        android:orientation="vertical"
+        android:padding="@dimen/p_10_t_10">
+
+        <TextView
+            android:id="@+id/im_tv_recipient_text_msg_owner_name"
+            style="@style/IMTextView_dodger_blue_approx_p_12_t_12"
+            android:layout_width="wrap_content"
+            android:text="Donewith it "
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/p_10_t_10"
+            android:paddingRight="@dimen/p_10_t_10"/>
+
+        <TextView
+            android:id="@+id/im_tv_recipient_text_msg_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/im_tv_recipient_text_msg_owner_name"
+            android:maxWidth="@dimen/p_250_t_250"
+            android:text="whatsa the trend"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="@color/im_recipient_chat_text_msg_color"
+            android:fontFamily="sans-serif"
+            android:paddingLeft="@dimen/p_10_t_10"/>
+
+        <TextView
+            android:id="@+id/im_tv_recipient_text_msg_time"
+            style="@style/IMTextView_grey_boulder_p_10_t_10"
+            android:layout_width="wrap_content"
+            android:text="Make things happen"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/im_tv_sender_text_msg_text"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/im_tv_recipient_text_msg_text"
+            android:layout_gravity="end|bottom"
+            android:gravity="bottom"
+            android:paddingLeft="@dimen/p_10_t_10"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

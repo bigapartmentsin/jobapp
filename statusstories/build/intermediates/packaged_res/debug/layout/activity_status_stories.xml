@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:background="#60000000"
+        android:padding="4dp"
+        android:textColor="#ffffff"
+        tools:text="progress: ??.? %" />
+
+    <ProgressBar
+        android:id="@+id/imageProgressBar"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/github_232_circular" />
+
+    <View
+        android:id="@+id/moreInfo1"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/storybottomline">
+
+    </View>
+
+    <LinearLayout
+        android:id="@+id/storyActionLayout"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:layout_gravity="bottom"
+        android:weightSum="5"
+        android:background="@drawable/border_corner_brown"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:layout_gravity="center">
+
+            <ProgressBar
+                android:id="@+id/daysRemainingProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:progressTint="#5162C0"
+                android:progress="30">
+
+            </ProgressBar>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#ffff"
+                android:text="20"
+                android:id="@+id/daysRemainingText">
+
+            </TextView>
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgStared"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_star_empty"/>
+
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgShare"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_share"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/applyStatus"
+            android:textAlignment="center"
+            android:background="@drawable/border_corner_brown"
+            android:text="@string/ApplyNow"
+            android:textColor="#ffff"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:drawableRight="@drawable/ic_right"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/actions"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="9"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/reverse"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <View
+                android:id="@+id/center"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5" />
+
+            <View
+                android:id="@+id/skip"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/moreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/storybottomline">
+
+            </View>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <com.rahuljanagouda.statusstories.StoryStatusView
+        android:id="@+id/storiesStatus"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:id="@+id/storiesInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/actions"
+        android:orientation="horizontal">
+
+
+
+
+    </LinearLayout>
+</merge>

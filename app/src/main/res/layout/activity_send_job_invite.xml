@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/white_box_cornered"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp">
+
+        <cdflynn.android.library.checkview.CheckView
+            android:id="@+id/check"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:checkView_strokeColor="@color/green"
+            app:checkView_strokeWidth="10dp"/>
+
+
+        <ImageView
+            android:id="@+id/jobPostImageView"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/sample_job_post"/>
+
+        <TextView
+            android:id="@+id/designationTV"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Full stack android developer"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            android:textColor="@color/im_black"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/jobPostImageView"/>
+
+
+        <TextView
+            android:id="@+id/expTV"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="left"
+            android:textColor="@color/color_gray"
+            android:text="Experince 3-5 yrs"
+            android:layout_toRightOf="@id/jobPostImageView"
+            android:layout_below="@id/designationTV"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/sendInvite"
+            android:layout_width="fill_parent"
+            android:layout_margin="15dp"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:textAllCaps="false"
+            android:background="@drawable/round_purple_get_otp"
+            android:textColor="@color/color_white"
+            android:layout_below="@id/expTV"
+            android:layout_toRightOf="@id/jobPostImageView"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        >
+
+        <RelativeLayout
+
+            android:id="@+id/wraper_savedimage"
+
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="47dp"
+            android:background="@drawable/ic_bg_posterimage_inbox"
+            android:layout_height="67dp"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="37dp"
+                android:id="@+id/ivview"
+                app:cardCornerRadius="5dp"
+               android:layout_marginLeft="5dp"
+         android:layout_marginTop="3dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F6F6F6"
+                android:backgroundTint="#F6F6F6"
+                android:layout_height="60dp">
+
+            <ImageView
+                android:id="@+id/saveimageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/dummy_image" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+
+
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/center_textview"
+            android:textColor="#8E63E6"
+            android:textSize="14sp"
+            android:lineHeight="18sp"
+            android:fontFamily="@font/mulibold"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/wraper_savedimage"
+            android:text="JOB POST 1"
+
+            >
+
+        </TextView>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="62dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="60dp"
+            android:layout_toLeftOf="@id/savedtitle"
+            android:background="#AFBFC6" />
+
+        <TextView
+            android:id="@+id/savedtitle"
+            android:text="Full stack android developer"
+            android:gravity="left"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="#667480"
+            android:fontFamily="@font/mulibold"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:lineHeight="15sp"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/center_textview"/>
+
+
+        <TextView
+            android:id="@+id/savedexperience"
+            android:layout_width="186dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="10sp"
+            android:lineHeight="13sp"
+            android:gravity="left"
+            android:textColor="#8E63E6"
+            android:fontFamily="@font/muliregular"
+            android:text="3 - 4 exp "
+            android:layout_toRightOf="@id/center_textview"
+            android:layout_below="@id/savedtitle"
+           />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/savedposteddate"
+            android:layout_marginTop="50dp"
+            android:layout_toLeftOf="@+id/layout"
+            android:layout_below="@id/savedexperience"
+            android:textColor="@color/color_white"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#AFBFC6" />
+
+</LinearLayout>

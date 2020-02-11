@@ -1,0 +1,161 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_ex1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="15dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:text="@string/Experience"/>
+
+            <TextView
+                android:id="@+id/tvExpYrs"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content"
+                android:text="1 + "/>
+
+
+            <SeekBar
+                android:id="@+id/expSeekbar"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/tvExpYrs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progressTint="@color/colorPurple"
+                android:thumbTint="@color/colorPurple"
+                android:max="12"
+                android:progress="1"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:id="@+id/filter_dialog_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.6"
+            android:background="@drawable/ic_ex4"
+            android:paddingRight="1dp" >
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sort"
+                android:paddingLeft="30dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/ic_ex3"
+               android:textSize="16dp"
+                android:fontFamily="@font/muliregular"
+                android:textColor="#667480"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:paddingLeft="30dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="18dp"
+                android:background="@drawable/ic_ex5"
+                android:textSize="16dp"
+                android:fontFamily="@font/muliregular"
+                android:textColor="#667480"
+
+                >
+            </TextView>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/filter_value_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/ic_ex2"
+            android:layout_weight="0.4" >
+
+
+
+            <RadioGroup
+                android:layout_margin="16dp"
+                android:id="@+id/radioGroup"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Distance"
+                    android:buttonTint="@color/your_color"
+                    android:textSize="18sp"/>
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recently posted"
+                    android:buttonTint="@color/your_color"
+                    android:textSize="18sp"/>
+
+
+            </RadioGroup>
+
+
+
+
+            <TextView
+                android:id="@+id/doneBtn"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginTop="90dp"
+                android:background="@drawable/ic_apply"
+                android:fontFamily="@font/mulisemibold"
+                android:gravity="center_horizontal|center_vertical"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

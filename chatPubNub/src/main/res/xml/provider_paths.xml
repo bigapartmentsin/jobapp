@@ -1,0 +1,16 @@
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="external_files" path="."/>
+
+
+    <cache-path name="documents" path="/"/>
+
+
+    <external-files-path
+        name="futurapp/"
+        path="futurapp" />
+
+    <files-path
+        name="my_docs"
+        path="."/>
+
+</paths>

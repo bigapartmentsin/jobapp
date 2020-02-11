@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">Futur</string>
+    <string name="ask_for_error_log">Something went wrong.\nPlease help us by providing error details.\nThank you for your support.</string>
+    <string name="email_welcome_note">Dear Support Team,\n\nApplication is just crashed, please check following error logs for more details.\n\n\n</string>
+    <string name="TourGuideHelperColor">"#05d4f3"</string>
+    <string name="email_subject">"Medinin Mobile Assistance Needed"</string>
+    <string name="Theme">"Light Theme"</string>
+    <string name="phone_no">"9999999"</string>
+    <string name="help_emailid">"dev.medinin@gmail.com"</string>
+
+
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="LOADING">Loading...</string>
+
+
+    <string name="show_internet_msg">Please check you internet connection...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="im_push_notification_title">Futur</string>
+
+    <string name="todo">TODO</string>
+
+
+    <string name="tour2_txt">Open new opportunities to people around you</string>
+    <string name="tour3_txt">Find your dream job smarter with us</string>
+    <string name="tour4_txt">Create a new experience into your future</string>
+
+
+    <string name="welcomeText">Welcome! Swipe left to see what we do</string>
+    <string name="alredy_hav">Already have an account ?</string>
+    <string name="Login">Login</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="VerifyandProceed">Verify and Proceed</string>
+    <string name="Next">Next</string>
+    <string name="BasicDetails">Basic Details</string>
+    <string name="Profession">Profession</string>
+    <string name="FullName">Full Name</string>
+    <string name="Gender">Gender</string>
+    <string name="SelectIndustry">Select Industry</string>
+    <string name="Occupation">Occupation</string>
+    <string name="University">University</string>
+    <string name="Experience">EXPERIENCE</string>
+    <string name="Experience_one">Experience  8 - 12 yr</string>
+    <string name="Done">Done</string>
+    <string name="Transgender">Transgender</string>
+    <string name="Chats">Chats</string>
+    <string name="Global">Jobs</string>
+    <string name="Account">Account</string>
+
+
+    <string name="YourJobPosts">Your Job Posts</string>
+    <string name="ReceiveJobNotification">Receive Job Notification</string>
+    <string name="ProfileSettings">Profile Settings</string>
+    <string name="PhoneNumber">Phone Number</string>
+    <string name="PhoneNumberPrivacyText">Your phone number is secure and will not be revealed to anyone</string>
+    <string name="ProfessionDetails">Profession Details</string>
+    <string name="AddYourColl_Text">Add your college to find people from your alumni network</string>
+    <string name="AppSettings">App Settings</string>
+    <string name="send_push_Notification">Send Push Notifications</string>
+    <string name="Turn_on_Push_Msg">Turn on to receive important alerts about your account</string>
+    <string name="third_party_ac">3rd Party Accounts</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="support">Support</string>
+    <string name="raise_a_ticket">Raise a ticket</string>
+    <string name="please_tell_prblm">Please tell us your problem, we will help you or fix it!</string>
+    <string name="invite_frie">Invite Friends</string>
+    <string name="rate_this_app">Rate this App</string>
+    <string name="help_us_gro">Help us grow and make our vision come true</string>
+
+    <string name="iamjobseeker">I am a job recruiter</string>
+
+    <string name="search_jobs">Search by Job Title, Company ...</string>
+    <string name="txt_done">Done</string>
+    <string name="clear">Clear</string>
+    <string name="search_people_msg">Search People by Job Title, Keyword..</string>
+    <string name="send_job_invite">SEND JOB INVITE</string>
+    <string name="select_job_post_send">Select a job post to send</string>
+    <string name="createJobPost">Create New Job Post</string>
+
+    <string name="job_details">Job Details</string>
+    <string name="job_title">Job Title</string>
+    <string name="company_nam">Company Name</string>
+    <string name="upload_pdf_">Upload pdf! or multiple png\'s(16x9) to create job story</string>
+    <string name="add_your_currentLocation">Add your current location to find jobs closer to your home!</string>
+    <string name="add_your_college">Add your college to find people from your alumni network</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="saved">Saved</string>
+    <string name="posted">Posted</string>
+
+    <string name="linkedinUrl">Linkedin Url</string>
+    <string name="Other">Other</string>
+
+
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="rationale_camera">This app needs access to your camera so you can take pictures.</string>
+    <string name="rationale_location_contacts">This app needs access to your location and contacts to know where and who you are.</string>
+    <string name="rationale_sms">This app needs access to your sms to read all your great messages.</string>
+    <string name="returned_from_app_settings_to_activity">
+        Returned from app settings to MainActivity with the following permissions:
+        \n\nCamera: %s
+        \nLocation &amp; Contacts: %s
+        \nSMS: %s
+    </string>
+    <string name="camera">Camera</string>
+    <string name="location_and_contacts">Location and Contacts</string>
+    <string name="sms">SMS</string>
+
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/im_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/im_ic_search"
+        android:title="@string/im_search_text"
+        app:showAsAction="collapseActionView|ifRoom"/>
+    <item
+        android:id="@+id/im_action_done"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/im_ic_tick_black"
+        android:title=""
+        android:visible="false"
+        app:showAsAction="collapseActionView|ifRoom"/>
+</menu>

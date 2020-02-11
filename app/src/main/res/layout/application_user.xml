@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="0dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/dropDownBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:orientation="horizontal"
+            android:tag="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_name"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/userpicture"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/user_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/mulisemibold"
+                android:text="User Name"
+                android:textColor="#282f3f"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/user_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="10dp"
+                android:id="@+id/timestamp"
+                android:text="Time Stamp "
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:layout_width="250dp"
+        android:id="@+id/viewpdf"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rootview"
+        android:layout_height="80dp">
+
+
+
+    </View>
+
+
+    <FrameLayout
+        android:background="@drawable/pending"
+        android:layout_width="281dp"
+        android:layout_height="140dp"
+        android:id="@+id/framelayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rootview"
+       >
+        <TextView
+            android:id="@+id/acceptbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="40dp"
+            android:text="DECLINE"
+            android:textColor="@color/im_black"
+            >
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/deletebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="100dp"
+            android:text="ACCEPT"
+            android:textColor="@color/im_black"
+     >
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/revert"
+            android:visibility="gone"
+            android:layout_width="16dp"
+            android:background="@drawable/ic_revert"
+            android:layout_height="16dp"
+            android:layout_marginLeft="235dp"
+            android:layout_marginTop="105dp"
+            >
+
+
+
+
+
+
+        </TextView>
+
+
+
+        <TextView
+            android:id="@+id/chat_move"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="124dp"
+            android:layout_marginTop="100dp"
+
+            android:text="CHAT"
+            >
+
+
+
+
+
+
+        </TextView>
+
+
+
+    </FrameLayout>
+
+
+
+
+    <ImageView
+        android:id="@+id/user_accept_button"
+        android:layout_width="281dp"
+        android:layout_height="140dp"
+        android:gravity="center" android:visibility="visible" app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rootview">
+    </ImageView>
+    <LinearLayout
+        android:id="@+id/bottomBarBtn"
+        android:layout_width="278dp"
+        android:layout_height="match_parent"
+        android:elevation="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_accept_button"
+        >
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Accept"
+            android:id="@+id/accept"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="Decline"
+            android:id="@+id/decline"
+            android:layout_weight="1"/>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

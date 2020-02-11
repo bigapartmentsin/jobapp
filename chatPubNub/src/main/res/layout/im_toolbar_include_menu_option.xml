@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/im_rl_toolbar_options"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right">
+
+    <ImageView
+        android:id="@+id/im_iv_details"
+        android:layout_width="@dimen/p_0_t_0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:gravity="center_vertical"
+        android:scaleType="centerInside"
+        android:src="@drawable/im_ic_info"/>
+
+    <ImageView
+        android:id="@+id/im_iv_forward"
+        android:layout_width="@dimen/p_0_t_0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:gravity="center_vertical"
+        android:scaleType="centerInside"
+        android:src="@drawable/im_ic_forward"/>
+
+</LinearLayout>
+
+

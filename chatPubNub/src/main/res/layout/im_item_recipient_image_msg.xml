@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/p_15_t_15">
+
+
+    <LinearLayout
+        android:id="@+id/im_ll_user_image_msg"
+        android:layout_width="@dimen/p_240_t_240"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/p_5_t_5"
+        android:layout_marginStart="@dimen/p_5_t_5"
+        android:background="@drawable/im_bg_msg_recipient"
+        android:orientation="vertical"
+        android:padding="@dimen/p_10_t_10">
+
+
+        <TextView
+            android:id="@+id/im_tv_recipient_image_msg_owner_name"
+            style="@style/IMTextView_dodger_blue_approx_p_12_t_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/p_10_t_10"
+            android:layout_marginStart="@dimen/p_10_t_10"/>
+
+        <FrameLayout
+            android:layout_width="@dimen/p_210_t_210"
+            android:layout_height="@dimen/p_235_t_235"
+            android:layout_marginLeft="@dimen/p_10_t_10"
+            android:layout_marginStart="@dimen/p_10_t_10">
+
+            <ImageView
+                android:id="@+id/im_iv_recipient_image_msg_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"/>
+
+            <View
+                android:layout_width="@dimen/p_210_t_210"
+                android:layout_height="@dimen/p_235_t_235"
+                android:layout_gravity="bottom"
+                android:background="@drawable/im_gradient_chat_video"/>
+
+            <Button
+                android:id="@+id/im_btn_recipient_image_msg_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/im_bg_rounded_button"
+                android:text="@string/im_download"
+                android:textColor="@color/im_white"
+                android:textSize="@dimen/p_10_t_10"/>
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/im_cpb_recipient_image_msg_progress"
+                android:layout_width="@dimen/p_50_t_50"
+                android:layout_height="@dimen/p_50_t_50"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:cpb_background_progressbar_color="@color/im_gray"
+                app:cpb_background_progressbar_width="@dimen/p_5_t_5"
+                app:cpb_progressbar_color="@color/im_atlantis_approx"
+                app:cpb_progressbar_width="@dimen/p_5_t_5"/>
+
+            <TextView
+                android:id="@+id/im_tv_recipient_image_msg_time"
+                style="@style/IMTextView_white_p_10_t_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                android:paddingBottom="@dimen/p_5_t_5"
+                android:paddingRight="@dimen/p_10_t_10"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/im_rl_activity_chat_history"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/im_thread_list_bg">
+
+<!--    <include layout="@layout/im_toolbar" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/im_rv_chat_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/im_toolbar"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/p_5_t_5" />
+
+    <TextView
+        android:id="@+id/im_tv_no_chat_history"
+        style="@style/IMTextView_dove_gray_approx_p_18_t_18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/im_no_chats_available"
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/im_fl_start_new_chat_thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|end"
+        android:clipToPadding="false"
+        android:src="@drawable/im_ic_add_fab"
+        app:backgroundTint="@color/im_new_chat_float_btn_color"
+        app:fabSize="normal"
+        app:useCompatPadding="true" />
+
+</RelativeLayout>

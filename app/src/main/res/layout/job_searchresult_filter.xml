@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="#0Dffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/filter_box_cornered"
+        android:elevation="1dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/Experience"/>
+
+                <TextView
+                    android:id="@+id/tvExpYrs"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:text="1 + "/>
+
+
+                <SeekBar
+                    android:id="@+id/expSeekbar"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/tvExpYrs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progressTint="@color/colorPurple"
+                    android:thumbTint="@color/colorPurple"
+                    android:max="12"
+                    android:progress="1"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filter_dialog_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:paddingRight="1dp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#0D000000"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/filter_value_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/filter_navigator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/filter"
+            android:layout_margin="2dp">
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/clear"
+                android:layout_margin="3dp"
+                android:textColor="@color/colorBlack"
+                android:background="@drawable/white_box_cornered" />
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="0dp"
+                style="@style/get_otp_btn"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/txt_done"
+                android:textColor="@color/colorBlack"
+                android:layout_margin="3dp"
+                android:background="#E8EEF6"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

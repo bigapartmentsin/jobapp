@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/im_ed_search_chat"
+        style="@style/IMSearchEditTextGalleryTheme"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@null"
+        android:gravity="center|left"
+        android:hint="@string/im_search_text"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:textCursorDrawable="@null"
+        android:textSize="@dimen/p_16_t_16"
+        app:backgroundTint="@color/im_white_10_alpha"/>
+
+</LinearLayout>

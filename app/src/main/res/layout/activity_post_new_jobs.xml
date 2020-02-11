@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/mainWrap1"
+        style="@style/main_wrap_box_setting"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:clickable="true"
+                    android:paddingLeft="27dp"
+                    android:paddingRight="27dp"
+                    android:layout_marginTop="10dp"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="30dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="right"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="12dp"
+                                />
+
+                            <LinearLayout
+                                android:id="@+id/add_photo_sec"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginStart="-10dp"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="-10dp"
+                                android:background="@drawable/add_photo_img">
+
+                                <ImageView
+                                    android:id="@+id/imageView6"
+                                    android:layout_width="50dp"
+                                    android:layout_height="45dp"
+                                    android:layout_marginStart="50dp"
+                                    android:layout_marginTop="28dp"
+                                    android:background="@drawable/ic_add_photos" />
+
+                                <TextView
+                                    android:id="@+id/add_photo_txt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginTop="36dp"
+                                    android:layout_weight="3"
+                                    android:fontFamily="@font/sfprotextregular"
+                                    android:maxLines="2"
+                                    android:gravity="center_vertical"
+                                    android:text="Add Photos"
+                                    android:textColor="#594d77"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/add_more_photo_sec"
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="30dp"
+                                android:background="@drawable/img_wrapper_style"
+                                android:gravity="center"
+                                android:visibility="visible">
+
+                                <LinearLayout
+                                    android:id="@+id/galleryPhotoListWrap"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="60dp"
+                                    android:orientation="horizontal" />
+
+                                <ImageView
+                                    android:id="@+id/addMorePhotoImgBtn"
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@drawable/grey_circle_border"
+                                    android:padding="8dp"
+                                    android:src="@drawable/ic_add_dark_purple" />
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/location_wrap"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:layout_marginStart="-10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="-10dp"
+                                android:background="@drawable/clinic_location_img"
+                                android:paddingBottom="10dp">
+
+
+                                <LinearLayout
+                                    android:id="@+id/linearLayout8"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="48dp"
+                                    android:layout_marginTop="24dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/ic_location_dot"
+                                        android:filterTouchesWhenObscured="true" />
+
+                                </LinearLayout>
+
+
+                                <TextView
+                                    android:id="@+id/locationTxt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="10dp"
+                                    android:paddingRight="25dp"
+                                    android:layout_weight="3"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/sfprotextregular"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:text=" Location"
+                                    android:textColor="#594d77"
+                                    android:textSize="14sp"
+                                    app:layout_constraintStart_toEndOf="@+id/linearLayout8"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+                    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                </LinearLayout>
+
+
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:background="@drawable/rounded_white_view"
+                android:gravity="center"
+                android:id="@+id/offffffffffff"
+                android:paddingBottom="0dp"
+                android:visibility="visible">
+
+
+            </FrameLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

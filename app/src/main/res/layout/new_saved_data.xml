@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:background="@drawable/ic_search_bg_card_"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/saveimageview"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/sample_job_post"/>
+
+        <TextView
+            android:id="@+id/savedtitle"
+            android:text="Full stack android developer"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            android:textColor="@color/im_black"
+            android:textAllCaps="true"
+            android:textSize="14sp"
+            android:layout_width="198dp"
+            android:layout_height="51dp"
+            android:layout_toRightOf="@id/saveimageview"/>
+
+
+        <TextView
+            android:id="@+id/savedexperience"
+            android:layout_width="186dp"
+            android:layout_height="18dp"
+            android:textSize="12sp"
+            android:gravity="left"
+            android:textColor="@color/color_gray"
+            android:text=""
+            android:layout_toRightOf="@id/saveimageview"
+            android:layout_below="@id/savedtitle"
+            android:layout_margin="5dp"/>
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+           android:id="@+id/savedposteddate"
+             android:layout_marginTop="50dp"
+            android:layout_toLeftOf="@+id/layout"
+            android:layout_below="@id/savedexperience"
+            android:textColor="@color/color_white"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/layout"
+            android:layout_toRightOf="@id/saveimageview"
+            android:layout_below="@id/savedexperience">
+
+
+
+
+            <TextView
+                android:layout_width="21dp"
+                android:layout_height="22dp"
+                android:id="@+id/savedjob"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/star_selt_one"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/sharejobpost"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ic_share_btn"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/applyjobnew"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+            />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

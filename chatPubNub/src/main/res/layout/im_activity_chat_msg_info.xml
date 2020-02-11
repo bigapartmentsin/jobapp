@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/im_thread_list_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/im_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/im_thread_divider_color"
+        android:orientation="vertical">
+
+        <include layout="@layout/im_item_chat_message" />
+
+        <View
+            android:id="@+id/im_vi_chat_msg_info_divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/p_1_t_1"
+            android:layout_marginTop="@dimen/p_15_t_15"
+            android:background="@color/im_thread_divider_color" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/im_rv_chat_msg_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:dividerHeight="@dimen/p_2_t_2" />
+
+</LinearLayout>

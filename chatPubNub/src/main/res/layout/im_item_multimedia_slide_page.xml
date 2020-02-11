@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/im_rl_multimedia_slider"
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/im_iv_multimedia_slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:fitsSystemWindows="true">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/im_iv_multimedia_slider_video_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/im_ic_video_play"
+        android:visibility="gone"/>
+</FrameLayout>

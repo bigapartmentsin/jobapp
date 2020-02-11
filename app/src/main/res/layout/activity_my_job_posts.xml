@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    tools:context=".activites.DashboardActivity">
+
+    <RelativeLayout
+        android:id="@+id/chatMenu"
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:background="@drawable/ic_dashboardbg">
+
+        <RelativeLayout
+            android:id="@+id/llchatMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:visibility="visible">
+
+
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/ic_arrow_left_white"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_overflow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:id="@+id/overflow">
+
+            </ImageView>
+
+
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:weightSum="3">
+
+
+            <TextView
+                android:id="@+id/tvSaved"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:textColor="@color/color_white"
+                android:text="@string/saved">
+            </TextView>
+
+
+
+            <TextView
+                android:id="@+id/tvPosted"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textStyle="normal"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_white"
+                android:text="@string/posted">
+            </TextView>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="23dp"
+            android:weightSum="3">
+
+
+            <View
+                android:layout_gravity="bottom"
+                android:id="@+id/saved_view"
+                android:visibility="visible"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_white"/>
+
+
+
+            <View
+                android:layout_gravity="bottom"
+                android:id="@+id/posted_view"
+                android:layout_width="0dp"
+                android:visibility="invisible"
+                android:layout_weight="1"
+                android:layout_height="5dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_white"/>
+
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:id="@+id/container"
+        android:layout_below="@id/chatMenu"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+
+
+
+</RelativeLayout>

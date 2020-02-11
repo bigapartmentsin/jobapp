@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/im_rl_activity_user_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/im_thread_list_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/im_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/im_rv_selected_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/p_76_t_76"
+            android:layout_gravity="center_horizontal"
+            android:paddingLeft="@dimen/p_5_t_5"
+            android:paddingStart="@dimen/p_5_t_5"
+            android:paddingTop="@dimen/p_5_t_5"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/im_view_divider1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/p_1_t_1"
+            android:layout_below="@+id/im_rv_selected_user_list"
+            android:background="@color/im_thread_divider_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/im_rv_user_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/im_view_divider1"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/p_15_t_15">
+
+
+    <FrameLayout
+        android:id="@+id/im_ll_user_video_msg"
+        android:layout_width="@dimen/p_240_t_240"
+        android:layout_height="@dimen/p_235_t_235"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/p_5_t_5"
+        android:layout_marginRight="@dimen/p_5_t_5"
+        android:background="@drawable/im_bg_msg_sender"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/p_10_t_10"
+        android:paddingLeft="@dimen/p_10_t_10"
+        android:paddingRight="@dimen/p_10_t_10">
+
+        <FrameLayout
+            android:layout_width="220dp"
+            android:layout_height="@dimen/p_235_t_235"
+            android:paddingRight="@dimen/p_10_t_10">
+
+            <ImageView
+                android:id="@+id/im_iv_sender_video_msg_thumb"
+                android:layout_width="220dp"
+                android:layout_height="@dimen/p_235_t_235"/>
+
+            <View
+                android:layout_width="@dimen/p_210_t_210"
+                android:layout_height="@dimen/p_235_t_235"
+                android:background="@drawable/im_gradient_chat_video"/>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/im_iv_sender_video_msg_play_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/im_ic_video_play"/>
+
+        <Button
+            android:id="@+id/im_btn_sender_video_msg_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/im_bg_rounded_button"
+            android:text="@string/im_upload"
+            android:textColor="@color/im_white"
+            android:textSize="@dimen/p_10_t_10"
+            android:visibility="gone"/>
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/im_cpb_sender_video_msg_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:cpb_background_progressbar_color="@color/im_gray"
+            app:cpb_background_progressbar_width="5dp"
+            app:cpb_progressbar_color="@color/im_atlantis_approx"
+            app:cpb_progressbar_width="5dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingLeft="@dimen/p_10_t_10"
+            android:paddingRight="@dimen/p_10_t_10">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="@dimen/p_5_t_5"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/im_tv_sender_video_msg_video_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:baselineAlignBottom="true"
+                    android:cropToPadding="true"
+                    android:scaleType="center"
+                    android:src="@drawable/im_ic_video"/>
+
+                <TextView
+                    android:id="@+id/im_tv_sender_video_msg_video_duration"
+                    style="@style/IMTextView_bold_white_p_10_t_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/p_5_t_5"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/im_tv_sender_video_msg_time"
+                    style="@style/IMTextView_white_p_10_t_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/p_5_t_5"/>
+
+                <ImageView
+                    android:id="@+id/im_iv_sender_video_msg_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:baselineAlignBottom="true"
+                    android:cropToPadding="true"
+                    android:paddingRight="@dimen/p_5_t_5"
+                    android:scaleType="center"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>

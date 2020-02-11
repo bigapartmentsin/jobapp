@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "358523067348",
+    "firebase_url": "https://futur-9a208.firebaseio.com",
+    "project_id": "futur-9a208",
+    "storage_bucket": "futur-9a208.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358523067348:android:1905eea2d595a27e",
+        "android_client_info": {
+          "package_name": "com.abln.futur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358523067348-pbr0s2poat93kqh1nm17dff4uev1lk0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abln.futur",
+            "certificate_hash": "6b9d22394b2b32af37befa664fe94534b903817b"
+          }
+        },
+        {
+          "client_id": "358523067348-ov9vs2u2ki23qkt7kkibo36s5g9p5j6p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNNkyVxz52RgzLJGlYJ8lzals2L4ClTV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358523067348-ov9vs2u2ki23qkt7kkibo36s5g9p5j6p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/im_thread_list_bg">
+
+    <View
+        android:id="@+id/im_view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p_1_t_1"
+        android:background="@color/im_thread_divider_color" />
+
+    <TextView
+        android:id="@+id/im_tv_chat_history_header"
+        style="@style/IMTextView_dove_gray_approx_p_12_t_12"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p_40_t_40"
+        android:layout_below="@+id/im_view_divider"
+        android:ellipsize="end"
+        android:gravity="center|start"
+        android:background="@color/im_thread_divider_color"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/p_8_t_8"
+        android:paddingRight="@dimen/p_8_t_8" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/p_1_t_1"
+        android:layout_below="@+id/im_tv_chat_history_header"
+        android:background="@color/im_thread_divider_color" />
+
+</RelativeLayout>

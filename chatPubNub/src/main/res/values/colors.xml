@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="im_colorPrimary">#3F51B5</color>
+    <color name="im_colorPrimaryDark">#303F9F</color>
+    <color name="im_colorAccent">#FF4081</color>
+
+    <color name="blue">#4259DD</color>
+
+    <color name="im_transparent">#00000000</color>
+    <color name="im_white">#ffffff</color>
+    <color name="im_white_10_alpha">#1Affffff</color>
+
+    <color name="white">#ffffff</color>
+
+    <color name="im_black">#000000</color>
+    <color name="im_black_50_alpha">#80000000</color>
+    <color name="im_black_70_alpha">#B3000000</color>
+    <color name="im_black_90_alpha">#e5000000</color>
+
+    <color name="font_text">#333333</color>
+
+    <color name="im_silver_chalice_approx">#aaaaaa</color>
+    <color name="im_burnt_sienna_approx">#ee5551</color>
+    <color name="im_gallery">#f0f0f0</color>
+    <color name="im_gallery_white">#eeeeee</color>
+    <color name="im_dove_gray_approx">#666666</color>
+    <color name="im_grey_boulder">#777777</color>
+    <color name="im_dodger_blue_approx">#159bfe</color>
+    <color name="im_roman_approx">#dd5555</color>
+    <color name="im_red">#fa1d17</color>
+    <color name="im_mine_shaft_approx">#333333</color>
+    <color name="im_grey_dark">#888888</color>
+
+    <color name="im_gray">#808080</color>
+
+    <color name="im_atlantis_approx">#66cc33</color>
+
+    <color name="im_anakiwa_approx">#8CD0FD</color>
+    <color name="im_anakiwa_40_alpha">#6699E9FE</color>
+
+    <color name="im_texas_rose_dark_approx">#FCAB53</color>
+    <color name="im_heliotrope">#BA77FF</color>
+
+    <color name="im_mountain_meadow_approx">#1abc9c</color>
+
+    <color name="im_toolbar_color">#387BEC</color>
+    <color name="im_toolbar_title_color">#ffffff</color>
+
+    <color name="im_thread_list_bg">#ffffff</color>
+    <color name="im_thread_title_color">#333333</color>
+    <color name="im_thread_context_color">#ffffff</color>
+    <color name="im_thread_divider_color">#1A000000</color>
+    <color name="im_admin_label_color">#fa1d17</color>
+    <color name="im_bg_chat_text_field">#aaaaaa</color>
+
+    <color name="im_sender_chat_text_msg_color">@color/im_black</color>
+    <color name="im_recipient_chat_text_msg_color">@color/im_black</color>
+    <color name="im_new_chat_float_btn_color">@color/im_grey_dark</color>
+
+
+</resources>

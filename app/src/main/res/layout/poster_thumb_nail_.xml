@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fullscreen"
+    android:layout_width="300dp"
+    android:layout_height="500dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/imageWithoutFrame"
+        android:layout_width="300dp"
+        android:layout_height="468dp"
+        android:background="@drawable/job_card_extra_rounded">
+
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="300dp"
+            android:id="@+id/jobtitle"
+            android:layout_height="174dp"
+            android:fontFamily="@font/sfprotextbold"
+            android:textSize="35dp"
+            android:textColor="@color/font_text"
+            android:textAlignment="center"
+           >
+
+
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/companyNameTextview"
+            android:layout_width="150dp"
+            android:layout_height="288dp"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="30dip"
+
+            android:textSize="24sp"
+            android:fontFamily="@font/sfprotextsemibold"
+            android:textAlignment="center"
+            android:lineHeight="50dp"
+            android:lineSpacingExtra="20sp"
+            android:textColor="@color/font_text"
+            android:maxLength="60" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="167dp"
+            android:id="@+id/experience"
+            android:fontFamily="@font/sfprotextheavy"
+            android:textSize="18sp"
+            android:textColor="@color/font_text"
+            android:layout_marginTop="220dp"
+            android:text="@string/Experience">
+        </TextView>
+
+        <TextView
+            android:layout_width="138dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="157dp"
+            android:id="@+id/experience_range"
+            android:layout_marginTop="250dp"
+            android:fontFamily="@font/sfprotextheavy"
+            android:textSize="24sp"
+           android:textAlignment="center"
+            android:textColor="@color/font_text"
+            >
+
+
+        </TextView>
+
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_marginTop="340dp"
+            android:layout_marginLeft="226dp"
+            android:fontFamily="@font/sfprotextheavy"
+            android:textSize="24sp"
+            android:lineSpacingExtra="9sp"
+            android:id="@+id/posteddatetv"
+
+            android:textAlignment="center"
+            android:textColor="@color/font_text"
+            android:layout_height="135dp">
+
+
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="save" />
+
+
+</RelativeLayout>

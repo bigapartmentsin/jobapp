@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/im_rl_selected_user_layout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:longClickable="true">
+
+    <RelativeLayout
+        android:layout_width="@dimen/p_66_t_66"
+        android:layout_height="@dimen/p_66_t_66">
+
+        <FrameLayout
+            android:id="@+id/im_fl_selected_user_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/im_iv_selected_user_img"
+                android:layout_width="@dimen/p_44_t_44"
+                android:layout_height="@dimen/p_49_t_49"
+                android:layout_gravity="center_vertical"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:paddingTop="@dimen/p_5_t_5"
+                android:src="@drawable/im_ic_default_user_profile"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/im_tv_selected_user_img"
+                android:layout_width="@dimen/p_40_t_40"
+                android:layout_height="@dimen/p_40_t_40"
+                android:background="@drawable/im_bg_circle_red"
+                android:gravity="bottom|center_horizontal"
+                android:paddingTop="8dp"
+                android:textColor="@color/im_white"
+                android:textSize="@dimen/p_25_t_25"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/im_iv_selected_user_close_bg"
+                android:layout_width="@dimen/p_22_t_22"
+                android:layout_height="@dimen/p_22_t_22"
+                android:layout_gravity="right|top"
+                android:clickable="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:src="@drawable/im_ic_contacts_close"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/im_tv_selected_user_name"
+            style="@style/IMTextView_mine_shaft_approx_p_10_t_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/im_fl_selected_user_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/p_3_t_3"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/im_thread_title_color"
+            android:paddingLeft="@dimen/p_8_t_8"
+            android:paddingRight="@dimen/p_8_t_8"/>
+    </RelativeLayout>
+</RelativeLayout>

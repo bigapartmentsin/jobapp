@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/im_rl_activity_chat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/im_thread_list_bg">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/im_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="@color/im_toolbar_title_color">
+
+        <include layout="@layout/im_toolbar_include_chat_window" />
+
+        <include layout="@layout/im_toolbar_include_menu_option" />
+
+        <include layout="@layout/added_combine_shape" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/im_contextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/im_toolbar"
+        android:background="@color/im_bg_chat_text_field"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:padding="6dp"
+        android:singleLine="true"
+        android:text="breaking bad"
+        android:textColor="@color/cardview_light_background"
+        android:visibility="visible" />
+    <ProgressBar
+        android:id="@+id/pbHeaderProgress"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_weight="2" >
+    </ProgressBar>
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:id="@+id/datahandler"
+        android:background="@drawable/rectangle_four"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  View "
+            >
+
+
+        </TextView>
+
+    </RelativeLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_above="@+id/im_rl_options_post"
+        android:layout_below="@+id/datahandler"
+        android:layout_height="match_parent">
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/im_rv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginBottom="@dimen/p_10_t_10"
+        android:scrollbars="vertical"
+        android:visibility="visible" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/im_fl_down_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/im_rl_options_post"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|end"
+        android:clipToPadding="false"
+        android:src="@drawable/ic_vertical_down"
+        app:backgroundTint="@color/im_grey_dark"
+        app:fabSize="mini"
+        app:useCompatPadding="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAttachmentOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/im_rl_options_post"
+        android:layout_marginLeft="6dp"
+        android:visibility="gone"
+        android:layout_marginRight="6dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0644F7"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvOpenGallery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:clickable="true"
+                android:textColor="#c4c4c4"
+                android:background="?selectableItemBackground"
+                android:drawableTop="@drawable/ic_gallery"
+                android:gravity="center"
+                android:text="Gallery" />
+
+            <TextView
+                android:id="@+id/tvTakePhoto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/im_ic_camera_photo"
+                android:gravity="center"
+                android:textColor="#c4c4c4"
+                android:clickable="true"
+                android:background="?selectableItemBackground"
+                android:padding="5dp"
+                android:text="Take Photo" />
+
+            <TextView
+                android:id="@+id/tvTakeVideo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#c4c4c4"
+                android:drawableTop="@drawable/im_ic_camera_video"
+                android:gravity="center"
+                android:clickable="true"
+                android:visibility="gone"
+                android:background="?selectableItemBackground"
+                android:padding="5dp"
+                android:text="Take Video" />
+
+            <TextView
+                android:id="@+id/tvTakeLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#c4c4c4"
+                android:drawableTop="@drawable/ic_my_location_white_24dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="?selectableItemBackground"
+                android:padding="5dp"
+                android:text="My Location" />
+
+
+        </TableRow>
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/im_rl_options_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/im_tv_chat_typing_status"
+            style="@style/IMTextView_dove_gray_approx_p_12_t_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/p_10_t_10"
+            android:layout_marginStart="@dimen/p_10_t_10"
+            android:drawableLeft="@drawable/im_ic_is_typing2"
+            android:drawablePadding="@dimen/p_5_t_5"
+            android:drawableStart="@drawable/im_ic_is_typing2"
+            android:gravity="center"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/im_ll_type_response_chat_band"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/im_tv_chat_typing_status"
+            android:layout_marginBottom="@dimen/p_5_t_5"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/im_tv_disable_band_msg"
+                style="@style/IMTextView_burnt_sienna_approx_p_12_t_12"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/p_35_t_35"
+                android:background="@color/im_gallery_white"
+                android:gravity="center"
+                android:text="@string/im_disable_chat_band"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/im_rl_chat_users_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/im_ll_type_response_chat_band"
+            android:layout_margin="6dp"
+            android:background="#464646"
+            app:cardCornerRadius="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_purple_round"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/im_btn_upload_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/p_10_t_10"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:src="@drawable/ic_im_ic_plus_response3" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/im_tv_auto_complete_chat"
+                    style="@style/IMTextView_black_p_14_t_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/im_btn_send_response_chat"
+                    android:layout_toRightOf="@+id/im_btn_upload_chat"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:gravity="start|center"
+                    android:hint="@string/im_type_a_message"
+                    android:maxLines="6"
+                    android:padding="@dimen/p_12_t_12"
+                    android:textColor="@color/Black"
+                    android:textColorHint="@color/im_silver_chalice_approx" />
+
+                <ImageView
+                    android:id="@+id/im_btn_send_response_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/p_1_t_1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:src="@drawable/ic_im_send_response3" />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".module.login.LoginActivity"
+    android:background="@drawable/ic_app_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/back_sec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp">
+
+                <TextView
+                    android:id="@+id/back_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/sfprotextregular"
+                    android:text=""
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toEndOf="@+id/back_arrow"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/back_arrow"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/ic_arrow_left_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cancle_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="14dp"
+                    android:fontFamily="@font/sfprotextsemibold"
+                    android:text="1 of 3"
+                    android:textColor="@color/color_white"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#4A368D"
+                android:text="@string/SignUp"
+                android:layout_gravity="bottom"
+                android:paddingStart="10dp"
+                android:textSize="22sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:orientation="horizontal">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/countryCodePicker"
+                android:layout_width="0dp"
+                android:layout_weight=".35"
+                android:layout_height="wrap_content"
+                app:ccp_autoDetectLanguage="true"
+                android:layout_margin="2dp"
+                android:layout_gravity="center"
+                android:paddingLeft="25dp"
+                app:ccp_textSize="12dp">
+            </com.hbb20.CountryCodePicker>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_text_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_weight=".65"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_margin="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileNumber"
+                    android:layout_width="match_parent"
+                    android:paddingStart="10dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:hint="@string/phoneNumber" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:id="@+id/llgetopt"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/cancel_txt"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="CANCEL"
+                    android:textColor="#8fa7b1"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/btnGetOtp"
+                    style="@style/get_otp_disable_btn"
+                    android:layout_width="131dp"
+                    android:layout_height="45dp"
+                    android:layout_marginEnd="5dp"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:tag="true"
+                    android:text="Get OTP"
+                    android:textColor="#AFBFC6"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llgetopt"
+            android:id="@+id/verifyOTP"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvUserName"
+                android:textSize="12dp"
+                android:fontFamily="@font/muliblackitalic"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:gravity="center"
+                android:text="Welcome back Bharath ... Plz enter the OTP you received .."/>
+
+
+            <LinearLayout
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/get_otp_txt"
+                    style="@style/new_label_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="0dp"
+                    android:fontFamily="@font/sfprotextregular"
+                    android:text="4-Digit OTP"
+                    android:textColor="#88a1ac"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/loginCountDownTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="16dp"
+                    android:fontFamily="@font/sfprotextmedium"
+                    android:text="5:00"
+                    android:textAlignment="textEnd"
+                    android:textColor="#282f3f"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </LinearLayout>
+
+            <com.abln.futur.common.PinEntryEditText
+                android:layout_width="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:digits="1234567890"
+                android:inputType="number"
+                android:imeOptions="actionDone"
+                android:layout_gravity="center"
+                android:maxLength="4"
+                android:textIsSelectable="false"
+                android:id="@+id/customOTP"/>
+
+            <RelativeLayout
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/new_label_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/muliregular"
+                    android:text="Voice OTP"
+                    android:id="@+id/tvVoiceOTP"
+                    android:textColor="#8fa7b1"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/resendOTP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_bottom_purple"
+                    android:fontFamily="@font/mulisemibold"
+                    android:text="Resend"
+                    android:gravity="right"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="#9D77e9"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/btnVerifyOtp"
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:background="@color/colorPurple"
+        android:tag="true"
+        android:text="@string/VerifyandProceed"
+        android:textColor="@color/color_white"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"/>
+
+
+
+
+</RelativeLayout>

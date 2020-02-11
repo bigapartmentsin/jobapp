@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">IMApp</string>
+
+
+    <string name="im_chat_thread_list_header">Chats</string>
+    <string name="im_name">NAME</string>
+    <string name="im_context_name">CONTEXT</string>
+    <string name="im_messages">MESSAGES</string>
+
+    <string name="im_info">Info</string>
+
+    <string name="im_admin">Group Admin</string>
+    <string name="im_participants">Participants</string>
+
+    <string name="im_no_participant"> No participant Added</string>
+    <string name="im_add_participants">Add Participants</string>
+
+    <string name="im_media">Media </string>
+
+    <string name="im_message_info">Message Info</string>
+
+    <string name="im_contacts">Contacts</string>
+
+    <string name="im_type_a_message"><i>Type a message</i></string>
+    <string name="im_disable_chat_band">You are no longer part of this group</string>
+
+    <string name="im_add">Add</string>
+    <string name="im_delete">Delete</string>
+
+    <string name="im_mute">Mute</string>
+    <string name="im_unmute">UnMute</string>
+
+    <string name="im_chat_delivered">Delivered</string>
+    <string name="im_chat_read">Read</string>
+
+    <string name="im_camera">Camera</string>
+    <string name="im_upload">Upload</string>
+    <string name="im_download">Download</string>
+    <string name="im_copied">Copied</string>
+    <string name="im_photo">Photo</string>
+    <string name="im_video">Video</string>
+    <string name="im_select_img_video">Select Image or Video</string>
+
+    <string name="im_camera_permission_msg">You have to allow camera permission to take photo/Video</string>
+    <string name="im_storage_permission_for_multi_media_msg">You have to allow storage permission for camera to take photo/Video</string>
+    <string name="im_gallery_permission_msg">You have to allow access to gallery to use this feature</string>
+    <string name="im_location_permission_msg">You have to allow access to location to use this feature</string>
+
+    <string name="im_no_chats_available">No Chats Available</string>
+
+    <string name="im_chat_error_text">Chat Error</string>
+    <string name="im_add_recipient_chat_alert_msg">You have not selected a recipient. Please add recipients to your chat</string>
+    <string name="im_chat_typing_status">is typing...</string>
+    <string name="im_setting_up_chatting"> Wait for a moment for setting up chatting</string>
+
+    <string name="im_search_text">Search</string>
+
+    <string name="im_chat_message"> Chat message </string>
+
+    <!--PUSH NOTIFICATION-->
+    <string name="im_message_from"> message from </string>
+    <string name="im_added_you_to_a_conversation"> added you to a conversation </string>
+    <string name="im_to_a_conversation"> to a conversation</string>
+    <string name="im_added"> added </string>
+    <string name="im_removed"> removed </string>
+    <string name="im_chats"> chats </string>
+    <string name="im_ok_txt">OKAY</string>
+
+    <!-- Alert -->
+    <string name="im_hint_group_name">Double tap to edit</string>
+    <string name="TourGuideHelperColor">"#f18926"</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="im_chat_camera_options">
+        <item>Take Photo</item>
+        <item>Take Video</item>
+    </string-array>
+</resources>

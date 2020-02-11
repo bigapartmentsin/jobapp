@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_welcome"
+    android:layout_width="match_parent"
+    android:background="#E8EEF6"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llIconsUploadResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:layout_margin="10dp">
+
+                    <ImageView
+                        android:id="@+id/resumeUpload"
+                        android:layout_margin="5dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_upload_resume_icon"/>
+
+                    <ImageView
+                        android:id="@+id/postaJob"
+                        android:layout_margin="5dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_post_a_job"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/settingsWrap"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/myJobPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/YourJobPosts"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:id="@+id/totalnumberofpost"
+                            android:gravity="center"
+                            android:layout_alignParentRight="true"
+                            android:paddingEnd="40dp">
+
+                        </TextView>
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/arrow_right_grey" />
+
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/ReceiveJobNotification"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/JobNotificationSwitch"
+                            android:layout_width="50dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/switch_grey_border"
+                            android:gravity="center"
+                            android:paddingEnd="2dp"
+                            android:theme="@style/SCBSwitch"
+                            app:thumbTintMode="src_in"
+                            app:trackTint="#00ffffff" />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="7dp"
+                        android:text="@string/ProfileSettings"
+                        android:textColor="#5d5d65"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/PhoneNumber"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/editPhoneNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:gravity="center_vertical"
+                            android:textColor="@color/textColorPh"
+                            android:layout_alignParentRight="true"
+                            android:paddingEnd="40dp">
+
+                        </TextView>
+
+                        <ImageView
+                            android:id="@+id/img"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/arrow_right_grey" />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:paddingTop="3dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PhoneNumberPrivacyText"
+                        android:textSize="12dp"
+                        android:textColor="#88a1ac"
+                        android:layout_below="@id/img"/>
+
+
+                    <RelativeLayout
+                        android:id="@+id/editBasicDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/BasicDetails"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_green_online_icon"
+                            android:layout_toLeftOf="@id/PhImg"/>
+
+                        <ImageView
+                            android:id="@+id/PhImg"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/arrow_right_grey" />
+
+
+
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/editProfDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/ProfessionDetails"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+
+                        <ImageView
+                            android:id="@+id/bdimg"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/arrow_right_grey" />
+
+
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:paddingTop="3dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/AddYourColl_Text"
+                        android:textSize="12dp"
+                        android:layout_below="@id/bdimg"
+                        android:textColor="#88a1ac"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="17dp"
+                        android:paddingBottom="7dp"
+                        android:text="@string/AppSettings"
+                        android:textColor="#5d5d65"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/send_push_Notification"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/notifSwitch"
+                            android:layout_width="50dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/switch_grey_border"
+                            android:gravity="center"
+                            android:paddingEnd="2dp"
+                            android:theme="@style/SCBSwitch"
+                            app:thumbTintMode="src_in"
+                            app:trackTint="#00ffffff" />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:paddingTop="3dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Turn_on_Push_Msg"
+                        android:textSize="12dp"
+                        android:textColor="#88a1ac"
+                        android:layout_below="@id/notifSwitch"/>
+
+                    <RelativeLayout
+                        android:id="@+id/editOtherAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="@string/third_party_ac"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/arrow_right_grey" />
+
+
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/openSignOutDialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/signout_sec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_gravity="center|center_vertical"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center_vertical"
+                            android:text="Sign Out"
+                            android:textColor="#cf7381"
+                            android:textSize="14sp" />
+
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:rotation="90"
+                            android:src="@drawable/arrow_right_red" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/sfprotextsemibold"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp"
+                        android:text="Support "
+                        android:textColor="#5d5d65"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RelativeLayout
+                        android:id="@+id/raiseTicketSec"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:onClick="openFeedbackDialog"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="Raise a Ticket"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/raiseImg"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:rotation="90"
+                            android:src="@drawable/arrow_right_grey" />
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:paddingTop="3dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_tell_prblm"
+                        android:textSize="12dp"
+                        android:textColor="#88a1ac"
+                        android:layout_below="@id/raiseImg"/>
+
+
+                    <RelativeLayout
+                        android:id="@+id/inviteFriends"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center"
+                            android:text="Invite Friends"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:rotation="90"
+                            android:src="@drawable/arrow_right_grey" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rate_app_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="10dp"
+                        android:background="@drawable/border_corner_white"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_gravity="center|center_vertical"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:fontFamily="@font/sfprotextregular"
+                            android:gravity="center_vertical"
+                            android:text="Rate this App"
+                            android:textColor="#88a1ac"
+                            android:textSize="14sp" />
+
+
+                        <ImageView
+                            android:id="@+id/rateAppImg"
+                            android:layout_width="50dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_star_empty" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:paddingTop="3dp"
+                        android:textColor="#88a1ac"
+                        android:layout_height="wrap_content"
+                        android:text="@string/help_us_gro"
+                        android:textSize="12dp"
+                        android:layout_below="@id/rateAppImg"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

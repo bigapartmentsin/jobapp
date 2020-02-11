@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <bool name="enable_nearby_search">true</bool>
+
+    <bool name="show_confirmation_photo">true</bool>
+
+    <bool name="show_confirmation_map">true</bool>
+
+    <!-- If true, the map will automatically center (pan) to
+         the selected marker -->
+    <bool name="auto_center_on_marker_click">true</bool>
+
+</resources>

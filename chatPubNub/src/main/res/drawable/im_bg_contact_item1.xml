@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="ring">
+            <size
+                android:width="@dimen/p_42_t_42"
+                android:height="@dimen/p_42_t_42" />
+            <solid android:color="@color/im_anakiwa_approx" />
+
+        </shape>
+    </item>
+    <item android:drawable="@drawable/im_ic_contact_group" />
+
+</layer-list>

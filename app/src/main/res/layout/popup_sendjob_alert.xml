@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="200dp"
+    android:background="#0Dffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_box_cornered"
+        android:padding="5dp"
+        android:elevation="1dp">
+
+
+        <ImageView
+            android:id="@+id/jobPostImageView"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/sample_job_post"/>
+
+        <TextView
+            android:id="@+id/designationTV"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Full stack android developer"
+            android:textStyle="bold"
+            android:gravity="left"
+            android:layout_margin="10dp"
+            android:textColor="@color/im_black"
+            android:textSize="14sp"
+            android:layout_toRightOf="@id/jobPostImageView"/>
+
+
+        <TextView
+            android:id="@+id/expTV"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:gravity="left"
+            android:text="Experince 3-5 yrs"
+            android:layout_toRightOf="@id/jobPostImageView"
+            android:layout_below="@id/designationTV"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:id="@+id/sendInvite"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            style="@style/get_otp_btn"
+            android:background="@color/textColorPh"
+            android:textColor="@color/color_white"
+            android:layout_below="@id/expTV"
+            android:layout_toRightOf="@id/jobPostImageView"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

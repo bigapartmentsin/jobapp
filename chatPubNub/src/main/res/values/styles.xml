@@ -1,0 +1,169 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="IMTheme" parent="IMTheme.Base"/>
+
+    <style name="IMTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">false</item>
+        <item name="windowActionBarOverlay">false</item>
+        <item name="colorPrimary">@color/im_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/im_colorPrimaryDark</item>
+        <item name="colorAccent">@color/im_colorAccent</item>
+    </style>
+
+    <style name="IMSearchEditTextWhiteTheme" parent="TextAppearance.AppCompat">
+
+        <item name="android:textSize">@dimen/p_12_t_12</item>
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="colorAccent">@color/im_white</item>
+        <item name="colorControlNormal">@color/im_white</item>
+        <item name="colorControlActivated">@color/im_white</item>
+        <item name="colorControlHighlight">@color/im_white</item>
+        <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
+    </style>
+
+    <style name="IMSearchEditTextGalleryTheme" parent="TextAppearance.AppCompat">
+
+        <item name="android:textSize">@dimen/p_12_t_12</item>
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="colorAccent">@color/im_gallery</item>
+        <item name="colorControlNormal">@color/im_gallery</item>
+        <item name="colorControlActivated">@color/im_gallery</item>
+        <item name="colorControlHighlight">@color/im_gallery</item>
+        <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
+    </style>
+
+    <style name="im_alert_dialog_theme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/im_black</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/im_black</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/im_white</item>
+    </style>
+
+    <style name="IMTextColor_white">
+        <item name="android:textColor">@color/im_white</item>
+    </style>
+
+    <style name="IMTextView_white_p_10_t_10" parent="IMTextColor_white">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="IMTextView_bold_white_p_10_t_10" parent="IMTextColor_white">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="IMTextView_white_p_12_t_12" parent="IMTextColor_white">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="IMTextView_white_p_16_t_16" parent="IMTextColor_white">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="IMTextColor_black">
+        <item name="android:textColor">@color/im_black</item>
+    </style>
+
+    <style name="IMTextView_black_p_14_t_14" parent="IMTextColor_black">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="IMTextColor_burnt_sienna_approx">
+        <item name="android:textColor">@color/im_burnt_sienna_approx</item>
+    </style>
+
+    <style name="IMTextView_burnt_sienna_approx_p_12_t_12" parent="IMTextColor_burnt_sienna_approx">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="IMTextColor_dove_gray_approx">
+        <item name="android:textColor">@color/im_dove_gray_approx</item>
+    </style>
+
+    <style name="IMTextView_dove_gray_approx_p_10_t_10" parent="IMTextColor_dove_gray_approx">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="IMTextView_dove_gray_approx_p_12_t_12" parent="IMTextColor_dove_gray_approx">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="IMTextView_dove_gray_approx_p_18_t_18" parent="IMTextColor_dove_gray_approx">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="IMTextColor_grey_boulder">
+        <item name="android:textColor">@color/im_grey_boulder</item>
+    </style>
+
+    <style name="IMTextView_grey_boulder_p_10_t_10" parent="IMTextColor_grey_boulder">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="IMTextView_grey_boulder_p_12_t_12" parent="IMTextColor_grey_boulder">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="IMTextColor_dodger_blue_approx">
+        <item name="android:textColor">@color/im_dodger_blue_approx</item>
+    </style>
+
+    <style name="IMTextView_dodger_blue_approx_p_12_t_12" parent="IMTextColor_dodger_blue_approx">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="IMTextColor_red">
+        <item name="android:textColor">@color/im_red</item>
+    </style>
+
+    <style name="IMTextView_red_p_10_t_10" parent="IMTextColor_red">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="IMTextColor_mine_shaft_approx">
+        <item name="android:textColor">@color/im_mine_shaft_approx</item>
+    </style>
+
+    <style name="IMTextView_mine_shaft_approx_p_10_t_10" parent="IMTextColor_mine_shaft_approx">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="IMTextView_bold_mine_shaft_approx_p_12_t_12" parent="IMTextColor_mine_shaft_approx">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="IMTextView_bold_mine_shaft_approx_p_14_t_14" parent="IMTextColor_mine_shaft_approx">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="IMTextColor_silver_chalice_approx">
+        <item name="android:textColor">@color/im_silver_chalice_approx</item>
+    </style>
+
+    <style name="IMTextView_silver_chalice_approx_p_10_t_10" parent="IMTextColor_silver_chalice_approx">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="IMTextView_silver_chalice_approx_p_12_t_12" parent="IMTextColor_silver_chalice_approx">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet_dialog_fragment</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+
+</resources>

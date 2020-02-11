@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/im_sl_chat_history_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/p_80_t_80"
+    android:clickable="true"
+    android:gravity="top"
+    swipe:leftEdgeSwipeOffset="@dimen/p_0_t_0"
+    swipe:rightEdgeSwipeOffset="@dimen/p_0_t_0">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/im_rl_chat_history_mute"
+            android:layout_width="@dimen/p_90_t_90"
+            android:layout_height="match_parent"
+            android:background="@color/im_grey_boulder">
+
+            <TextView
+                android:id="@+id/im_tv_chat_history_mute"
+                style="@style/IMTextView_white_p_12_t_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="@dimen/p_5_t_5"
+                android:drawableTop="@drawable/im_ic_swipe_mute"
+                android:gravity="center" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/im_rl_chat_history_delete"
+            android:layout_width="@dimen/p_90_t_90"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/p_1_t_1"
+            android:layout_marginStart="@dimen/p_1_t_1"
+            android:background="@color/im_roman_approx">
+
+            <TextView
+                style="@style/IMTextView_white_p_12_t_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="@dimen/p_5_t_5"
+                android:drawableTop="@drawable/im_ic_swipe_delete"
+                android:gravity="center"
+                android:text="@string/im_delete" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/im_ll_item_chat_history_user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/p_8_t_8"
+            android:layout_marginStart="@dimen/p_8_t_8">
+
+            <ImageView
+                android:id="@+id/im_iv_item_chat_history_user_profile"
+                android:layout_width="@dimen/p_48_t_48"
+                android:layout_height="@dimen/p_48_t_48"
+                android:src="@drawable/im_ic_default_user_profile" />
+
+            <TextView
+                android:id="@+id/im_tv_item_chat_history_user_profile"
+                android:layout_width="@dimen/p_48_t_48"
+                android:layout_height="@dimen/p_48_t_48"
+                android:background="@drawable/im_bg_circle_red"
+                android:gravity="center"
+                android:textColor="@color/im_white"
+                android:textSize="@dimen/p_25_t_25"
+                android:textStyle="bold"
+                android:text="AD"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/im_ll_chat_history_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/p_8_t_8"
+            android:layout_marginStart="@dimen/p_8_t_8"
+            android:layout_marginTop="@dimen/p_6_t_6"
+            android:layout_toEndOf="@+id/im_ll_item_chat_history_user_profile"
+            android:layout_toRightOf="@+id/im_ll_item_chat_history_user_profile"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/im_tv_chat_history_user_or_group_name"
+                style="@style/IMTextView_bold_mine_shaft_approx_p_14_t_14"
+                android:layout_width="@dimen/p_220_t_220"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/p_8_t_8"
+                android:paddingStart="@dimen/p_8_t_8"
+                android:textColor="@color/im_thread_title_color" />
+
+            <TextView
+                android:id="@+id/im_tv_chat_history_chat_context_metadata"
+                style="@style/IMTextView_bold_mine_shaft_approx_p_12_t_12"
+                android:layout_width="@dimen/p_220_t_220"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/p_5_t_5"
+                android:paddingLeft="@dimen/p_8_t_8"
+                android:paddingStart="@dimen/p_8_t_8"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/im_tv_chat_history_chat_context"
+                android:layout_width="@dimen/p_220_t_220"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingBottom="@dimen/p_5_t_5"
+                android:paddingLeft="@dimen/p_8_t_8"
+                android:paddingStart="@dimen/p_8_t_8"
+                android:text="Breaking Bad Ep 1"
+                android:textColor="@color/im_thread_context_color"
+                android:textSize="11sp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/im_ll_chat_history_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/p_5_t_5"
+                android:paddingTop="@dimen/p_5_t_5"
+                android:paddingLeft="@dimen/p_8_t_8"
+                android:paddingRight="@dimen/p_8_t_8">
+
+                <ImageView
+                    android:id="@+id/im_iv_chat_history_message_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/p_4_t_4"
+                    android:layout_marginRight="@dimen/p_4_t_4"
+                    android:adjustViewBounds="true"
+                    android:baselineAlignBottom="true"
+                    android:cropToPadding="true"
+                    android:scaleType="center"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/im_tv_chat_history_message"
+                    style="@style/IMTextView_silver_chalice_approx_p_12_t_12"
+                    android:layout_width="@dimen/p_200_t_200"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/im_rl_chat_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/p_4_t_4"
+            android:layout_marginStart="@dimen/p_4_t_4"
+            android:layout_marginTop="@dimen/p_8_t_8">
+
+            <TextView
+                android:id="@+id/im_tv_chat_history_date"
+                style="@style/IMTextView_silver_chalice_approx_p_10_t_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="@dimen/p_8_t_8"
+                android:layout_marginRight="@dimen/p_8_t_8"
+                android:paddingLeft="@dimen/p_8_t_8"
+                android:paddingStart="@dimen/p_8_t_8" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/im_tv_chat_history_date">
+
+                <ImageView
+                    android:id="@+id/im_iv_chat_notification_mute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/p_8_t_8"
+                    android:layout_marginRight="@dimen/p_8_t_8"
+                    android:layout_marginTop="@dimen/p_10_t_10"
+                    android:layout_toLeftOf="@+id/im_tv_chat_notification_count"
+                    android:layout_toStartOf="@+id/im_tv_chat_notification_count"
+                    android:background="@drawable/im_ic_notification_mute"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/im_tv_chat_notification_count"
+                    android:layout_width="@dimen/p_18_t_18"
+                    android:layout_height="@dimen/p_18_t_18"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="@dimen/p_8_t_8"
+                    android:layout_marginRight="@dimen/p_8_t_8"
+                    android:layout_marginTop="@dimen/p_10_t_10"
+                    android:background="@drawable/im_bg_circle_pizazz"
+                    android:gravity="center"
+                    android:textColor="@color/im_white"
+                    android:textSize="@dimen/p_8_t_8"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/p_1_t_1"
+            android:layout_alignLeft="@+id/im_ll_chat_history_item"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/im_ll_chat_history_item"
+            android:layout_marginLeft="@dimen/p_8_t_8"
+            android:layout_marginStart="@dimen/p_8_t_8"
+            android:background="@color/im_thread_divider_color" />
+    </RelativeLayout>
+
+</com.daimajia.swipe.SwipeLayout>

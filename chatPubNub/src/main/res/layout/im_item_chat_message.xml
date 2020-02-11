@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/im_include_sender_text_msg"
+        layout="@layout/im_item_sender_text_msg"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/im_include_sender_image_msg"
+        layout="@layout/im_item_sender_image_msg"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/im_include_sender_video_msg"
+        layout="@layout/im_item_sender_video_msg"
+        android:visibility="gone"/>
+
+    <!--<include-->
+        <!--android:id="@+id/include_sender_audio_msg"-->
+        <!--layout="@layout/item_sender_audio_msg"-->
+        <!--android:visibility="gone"/>-->
+
+    <include
+        android:id="@+id/im_include_recipient_text_msg"
+        layout="@layout/im_item_recipient_text_msg"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/im_include_recipient_image_msg"
+        layout="@layout/im_item_recipient_image_msg"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/im_include_recipient_video_msg"
+        layout="@layout/im_item_recipient_video_msg"
+        android:visibility="gone"/>
+
+    <!--<include-->
+    <!--android:id="@+id/include_recipient_audio_msg"-->
+    <!--layout="@layout/item_recipient_audio_msg"-->
+    <!--android:visibility="gone"/>-->
+
+</RelativeLayout>
