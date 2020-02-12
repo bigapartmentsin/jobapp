@@ -1,6 +1,7 @@
 package com.abln.futur.module.chats.adapter;
 
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -56,7 +57,7 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
     @BindView(R.id.chatLauncher)
     ImageView chatBtn;
     @BindView(R.id.containerChat)
-    FrameLayout container;
+    FrameLayout chatcontainer;
     private Context mContext;
     private NetworkOperationService mService;
     private StoriesAdapter mAdapter;
@@ -87,6 +88,13 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
         return inflater.inflate(R.layout.fragment_chats, container, false);
     }
 
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
+    }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -110,13 +118,16 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
             public void onClick(View view) {
                 Intent chatIntent = new Intent(view.getContext(), IMChatThreadListActivity.class);
                 chatIntent.putExtra("Context_Id", "1001");
-
                 startActivity(chatIntent);
             }
         });
 
         //TODO crash is happing no view found for id containerchat for fragment  chatviewfragment; from getalluserlistfromserver ;
         getAllUserListFromServer();
+
+
+
+
 
 
     }
@@ -148,22 +159,7 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
 
     }
 
-    private void getStoriesListFromServer() {
-        FuturProgressDialog.show(mContext, false);
-        GetStoriesRequest mFavoriteRquestBody = new GetStoriesRequest();
-        mFavoriteRquestBody.setUserID("8");
-        mFavoriteRquestBody.setLan("12.3435345");
-        mFavoriteRquestBody.setLat("15.342351");
 
-        HashMap<String, String> headerMap = new HashMap<>();
-        headerMap.put("Content-Type", "application/json");
-
-        Intent intent = new Intent(mContext, NetworkOperationService.class);
-        intent.putExtra(NetworkConfig.API_URL, NetworkConfig.getAllPatient);
-        intent.putExtra(NetworkConfig.HEADER_MAP, headerMap);
-        intent.putExtra(NetworkConfig.INPUT_BODY, mFavoriteRquestBody);
-        mContext.startService(intent);
-    }
 
     @Override
     public void onTaskCompleted(Context context, Intent intent) {
@@ -217,12 +213,11 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
 
                 System.out.println("DataSetchanges happing");
 
-
                 chatsViewFragment = new ChatsViewFragment();
-                getFragmentManager().beginTransaction()
+                getParentFragmentManager().beginTransaction()
                         .add(R.id.containerChat, chatsViewFragment)
-
                         .show(chatsViewFragment).commitAllowingStateLoss();
+
 
 
             }
@@ -276,7 +271,7 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
     @Override
     public void onChatMessageReceived(int totalUnSeenChatMsgCount, IMChatMessage latestChatMessage) {
 
-        UIUtility.showToastMsg_withAlertInfoShort(mContext,"new message ");
+      
 
     }
 

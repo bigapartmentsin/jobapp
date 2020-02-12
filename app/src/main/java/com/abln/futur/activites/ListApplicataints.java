@@ -24,8 +24,6 @@ import com.abln.chat.core.model.IMChatUser;
 import com.abln.chat.ui.Network.DataParser;
 import com.abln.chat.ui.helper.ChatHelper;
 import com.abln.futur.R;
-import com.abln.futur.activites.chatHandler.ChatFragment;
-import com.abln.futur.activites.chatHandler.ChatHandlerActivity;
 import com.abln.futur.common.Address;
 import com.abln.futur.common.AppConfig;
 import com.abln.futur.common.BaseResponse;

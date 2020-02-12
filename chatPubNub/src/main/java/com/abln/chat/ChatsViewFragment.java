@@ -133,6 +133,8 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
 
     private void initControlInitials() {
         setUpActionBar();
+
+        //todo commenting the two variable parts ;
         setChatHistoryAdapter();
         showChatHistory();
     }
@@ -157,6 +159,10 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
 //                    mLaunchNewChatThread.setVisibility(View.VISIBLE);
 //                }
 //            });
+
+
+
+
         }
 
         @Override
@@ -166,6 +172,10 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
 //                    mLaunchNewChatThread.setVisibility(View.GONE);
 //                }
 //            });
+
+
+
+
         }
     };
 
@@ -326,6 +336,8 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
         if (firstVisit) {
             //do stuff for first visit only
 
+            //TODO commintig updatechathistory
+
             updateChatHistory();
             firstVisit = false;
         }
@@ -366,9 +378,6 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
 //                return;
 
             isClicked = false;
-
-
-
             ChatHelper.openChatUserListActivity(mContext, mContextName, mContextId);
         }
 

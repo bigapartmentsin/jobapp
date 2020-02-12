@@ -1,5 +1,6 @@
 package com.abln.futur.activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -14,13 +15,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.abln.chat.IMInstance;
+import com.abln.chat.core.model.IMChatUser;
+import com.abln.chat.ui.Network.DataParser;
 import com.abln.futur.R;
 import com.abln.futur.common.AppConfig;
+import com.abln.futur.common.FLog;
+import com.abln.futur.common.FuturProgressDialog;
+import com.abln.futur.common.NetworkConfig;
 import com.abln.futur.common.PrefManager;
+import com.abln.futur.common.UIUtility;
+import com.abln.futur.datamodel.GetUserRequest;
+import com.abln.futur.interfaces.TaskCompleteListener;
+import com.abln.futur.module.chats.adapter.GetAllUsersResponse;
 import com.abln.futur.module.login.PreLoginActivity;
+import com.abln.futur.services.NetworkOperationService;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +44,7 @@ import static com.abln.futur.common.UIUtility.hasPermissions;
 
 
 public class
-SplashActivity extends AppCompatActivity {
+SplashActivity extends BaseActivity implements TaskCompleteListener {
 
 
     private final int PERMISSION_ALL = 1;
@@ -90,7 +104,9 @@ SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         tvVersion.setText("Version: " + AppConfig.getAppVersion());
-        startAnimation();
+
+
+        getAllUserListFromServer();
 
 
     }
@@ -133,6 +149,9 @@ SplashActivity extends AppCompatActivity {
 
     }
 
+
+
+
     private void startFunctions() {
         if (!mLocalSession.getApikey().equalsIgnoreCase(" ")) {
             startActivity(new Intent(this, DashboardActivity.class));
@@ -142,4 +161,91 @@ SplashActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
+
+
+    // new function is added to handle crash ;
+    @Override
+    public void onTaskCompleted(Context context, Intent intent) {
+        String requestType = intent.getStringExtra(NetworkConfig.REQUEST_TYPE);
+        String apiUrl = intent.getStringExtra(NetworkConfig.API_URL);
+        String responseString = intent.getStringExtra(NetworkConfig.RESPONSE_BODY);
+
+
+        if (responseString != null && apiUrl.equalsIgnoreCase(NetworkConfig.getAllUser)) {
+            FuturProgressDialog.dismissDialog();
+            GetAllUsersResponse getAllUsersResponse = DataParser.parseJson(responseString, GetAllUsersResponse.class);
+            if (getAllUsersResponse.getStatuscode() == 0) {
+                UIUtility.showToastMsg_short(this, getAllUsersResponse.getStatusMessage());
+                return;
+            } else if (getAllUsersResponse.getStatuscode() == 1) {
+
+                if (getAllUsersResponse.getData().getUserList().size() == 0) {
+                    UIUtility.showToastMsg_short(this, "No data found");
+                    return;
+                }
+
+
+
+                String firstName = null;
+
+
+                ArrayList<IMChatUser> chatUsers = new ArrayList<>();
+                for (int i = 0; i < getAllUsersResponse.getData().getUserList().size(); i++) {
+                    firstName = getAllUsersResponse.getData().getUserList().get(i).getFirstName();
+
+                    IMChatUser chatUser = new IMChatUser();
+                    if (null != firstName) {
+
+                        System.out.println("Getting user id ");
+
+                        chatUser.userId = getAllUsersResponse.getData().getUserList().get(i).getApikey() + "";
+                        chatUser.userName = firstName.trim();
+                        chatUsers.add(chatUser);
+                    }
+
+                    //   mySGList.add(getAllPatientResponse.getData().getPatientList().get(i));
+                }
+
+                AppConfig.saveChatInfo(chatUsers, this);
+
+
+//                IMInstance.getInstance().setUnSeenChatMsgCountListener((BaseFragment) getActivity());
+                IMInstance.getInstance().updateLoggedInuserStatus(true);
+                FLog.d(TAG, String.valueOf(IMInstance.getInstance().getTotalUnSeenChatMsgCount()));
+
+
+
+
+                startAnimation();
+
+
+
+            }
+
+
+        }
+    }
+
+
+
+    private void getAllUserListFromServer() {
+        GetUserRequest mFavoriteRquestBody = new GetUserRequest();
+        mFavoriteRquestBody.setCount(1);
+        HashMap<String, String> headerMap = new HashMap<>();
+        headerMap.put("Content-Type", "application/json");
+        Intent intent = new Intent(this, NetworkOperationService.class);
+        intent.putExtra(NetworkConfig.API_URL, NetworkConfig.getAllUser);
+        intent.putExtra(NetworkConfig.HEADER_MAP, headerMap);
+        intent.putExtra(NetworkConfig.INPUT_BODY, mFavoriteRquestBody);
+        startService(intent);
+    }
+
+
+
+
+
+
+
 }

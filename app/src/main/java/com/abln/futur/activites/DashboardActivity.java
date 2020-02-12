@@ -43,6 +43,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.abln.chat.ChatsViewFragment;
 import com.abln.chat.ui.Network.DataParser;
 import com.abln.chat.ui.activities.IMChatActivity;
 import com.abln.chat.utils.CircleImageView;
@@ -203,6 +204,14 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
     private ChatsFragment chatsFragment;
     private GlobalFragment globalFragment;
     private AccountFragment accountFragment;
+
+
+    // adding new chatfragment manager ;
+
+    private ChatsViewFragment viewFragment;
+
+    //
+
     private int index;
     private int currentTabIndex = 1;
     private PrefManager prefManager = new PrefManager();
@@ -267,32 +276,27 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
         initLocation();
 
-        chatsFragment = new ChatsFragment();
+       // chatsFragment = new ChatsFragment();
         globalFragment = new GlobalFragment();
         accountFragment = new AccountFragment();
 
-      //  mfragments = new Fragment[]{chatsFragment,globalFragment,accountFragment};
+
+        viewFragment = new ChatsViewFragment();
+
+
 
 
         fragmentArrayList = new ArrayList<>();
-        fragmentArrayList.add(chatsFragment);
+        fragmentArrayList.add(viewFragment);
         fragmentArrayList.add(globalFragment);
         fragmentArrayList.add(accountFragment);
 
-
-//        getSupportFragmentManager().beginTransaction()
-//                .add(R.id.container,chatsFragment)
-//                .add(R.id.container,globalFragment)
-//                .add(R.id.container,accountFragment)
-//
-//                .hide(chatsFragment)
-//                .hide(accountFragment)
-//                .show(globalFragment).commit();
 
 
         FragmentAdapter fragmentAdapter = new FragmentAdapter(this, fragmentArrayList);
 
         viewPager.setAdapter(fragmentAdapter);
+        viewPager.setOffscreenPageLimit(3);
         selectTab(0);
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
