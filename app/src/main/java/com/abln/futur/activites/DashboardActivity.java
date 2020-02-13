@@ -53,12 +53,16 @@ import com.abln.futur.common.BaseResponse;
 import com.abln.futur.common.FLog;
 import com.abln.futur.common.FuturApiClient;
 import com.abln.futur.common.GlobalSingleCallback;
+import com.abln.futur.common.ImageLoader;
 import com.abln.futur.common.InboxItem;
 import com.abln.futur.common.ModChat;
 import com.abln.futur.common.NetworkConfig;
 import com.abln.futur.common.PrefManager;
 import com.abln.futur.common.UIUtility;
 import com.abln.futur.common.models.AccountOne;
+import com.abln.futur.common.models.AppliedData;
+import com.abln.futur.common.models.ImageData;
+import com.abln.futur.common.models.RequestGlobal;
 import com.abln.futur.common.models.UserData;
 import com.abln.futur.common.postjobs.post;
 import com.abln.futur.customViews.FragmentAdapter;
@@ -90,6 +94,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.gson.JsonObject;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -105,6 +110,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -138,11 +144,6 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
     BottomSheetDialog bts;
     View sheetView;
-
-   // ArrayList<ModChat> final_list;
-
-
-    //urls array that should be shown as a story
     private final String[] resources = new String[]{
             "https://firebasestorage.googleapis.com/v0/b/firebase-satya.appspot.com/o/images%2Fi00001.jpg?alt=media&token=460667e4-e084-4dc5-b873-eefa028cec32",
             "https://firebasestorage.googleapis.com/v0/b/firebase-satya.appspot.com/o/images%2Fi00002.jpg?alt=media&token=e8e86192-eb5d-4e99-b1a8-f00debcdc016",
@@ -298,6 +299,8 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setOffscreenPageLimit(3);
         selectTab(0);
+
+
         viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -352,7 +355,10 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
 
         // TODO
-        //getsaveddata();
+
+
+
+        getuserimage();
 
 
     }
@@ -368,7 +374,7 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 
-// add a list
+
 
         builder.setItems(locationNames, new DialogInterface.OnClickListener() {
             @Override
@@ -388,7 +394,6 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
             }
         });
 
-// create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
@@ -820,6 +825,9 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
                 Glide.with(getApplicationContext()).load(userprofile)
                         .apply(RequestOptions.bitmapTransform(new RoundedCorners(14)))
                         .into(ivUserAvatar);
+
+                s1(prefManager.getApikey(),userprofile,true);
+
 
             }
         }
@@ -1386,7 +1394,97 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
         bts.dismiss();
 
-       // getsaveddata();
+    }
+
+
+
+
+
+
+    private void s1(String value, String data, boolean enable) {
+
+///data/user/0/com.abln.futur/cache/download.jpeg
+
+        File file = new File(data);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("*/*"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("img", file.getName(), requestFile);
+        Map<String, RequestBody> partMap = new HashMap<>();
+        partMap.put("apikey", RequestBody.create(MediaType.parse("text/plain"), value));
+
+
+        compositeDisposable.add((apiService.uploadImg(partMap, body)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new GlobalSingleCallback<BaseResponse<JsonObject>>(true, this) {
+                    @Override
+                    public void onApiSuccess(BaseResponse baseResponse) {
+
+                        dismissProgress();
+                        if (baseResponse.statuscode == 0) {
+
+
+
+
+
+
+
+                        } else if (baseResponse.statuscode == 1) {
+
+
+
+
+
+
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+
+
+
+
+
+                    }
+                })));
+
 
     }
+
+
+
+
+    private void getuserimage() {
+        RequestGlobal datahandel = new RequestGlobal();
+        datahandel.apikey = prefManager.getApikey();
+        compositeDisposable.add(apiService.getavatar(datahandel)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new GlobalSingleCallback<BaseResponse<ImageData>>(false, this) {
+                    @Override
+                    public void onApiSuccess(BaseResponse baseResponse) {
+
+                        ImageData data_list = (ImageData) baseResponse.data;
+
+
+                        ImageLoader.loadImage(data_list.avatar_url,ivUserAvatar);
+
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+
+                    }
+                }));
+
+    }
+
+
+
+
+
+
+
 }

@@ -78,11 +78,6 @@ public class JobDataAdapter  extends  RecyclerView.Adapter<JobDataAdapter.ViewHo
                 .into(holder.ivinboximg);
 
 
-
-
-
-
-        
     }
 
 

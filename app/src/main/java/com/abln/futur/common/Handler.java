@@ -8,6 +8,7 @@ import com.abln.futur.common.models.AccountOne;
 import com.abln.futur.common.models.AppliedData;
 import com.abln.futur.common.models.GetImages;
 import com.abln.futur.common.models.GetTotalNumberPost;
+import com.abln.futur.common.models.ImageData;
 import com.abln.futur.common.models.Mkey;
 import com.abln.futur.common.models.ModelAnaly;
 import com.abln.futur.common.models.Mstories;
@@ -69,6 +70,11 @@ public interface Handler {
     @Multipart
     @POST("v1/addpost")
     Single<BaseResponse<GetNormalpost>> addNewPost(@PartMap() Map<String, RequestBody> data, @Part MultipartBody.Part file);
+
+
+    @Multipart
+    @POST("v1/user-avatar")
+    Single<BaseResponse<JsonObject>> uploadImg(@PartMap() Map<String, RequestBody> data, @Part MultipartBody.Part file);
 
 
     @Multipart
@@ -300,6 +306,9 @@ public interface Handler {
     Single<BaseResponse<FileDataHandler>> viewfile(@Path(value = "a", encoded = true) String info,@Body RequestGlobal key);
 
 
+
+    @POST("/v1/get-avatar")
+    Single<BaseResponse<ImageData>> getavatar(@Body RequestGlobal key);
 
 
 

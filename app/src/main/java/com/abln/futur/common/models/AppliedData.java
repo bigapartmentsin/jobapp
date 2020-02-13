@@ -8,5 +8,7 @@ public class AppliedData implements Serializable {
 
   public   String tstat ;
 
+  public String avatar_url;
+
   public ArrayList<AppliedInfo> user_list;
 }

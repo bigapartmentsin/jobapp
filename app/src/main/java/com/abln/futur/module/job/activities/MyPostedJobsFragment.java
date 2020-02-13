@@ -25,6 +25,7 @@ import com.abln.futur.common.BaseResponse;
 import com.abln.futur.common.FuturProgressDialog;
 import com.abln.futur.common.GlobalSingleCallback;
 import com.abln.futur.common.NetworkConfig;
+import com.abln.futur.common.PostedAdapter;
 import com.abln.futur.common.PrefManager;
 import com.abln.futur.common.UIUtility;
 import com.abln.futur.common.models.Minfo;
@@ -52,7 +53,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyPostedJobsFragment extends BaseNewFragment implements TaskCompleteListener, newUserListAdapter.clickHandler {
+public class MyPostedJobsFragment extends BaseNewFragment implements TaskCompleteListener, PostedAdapter.clickHandler {
 
     private static final String TAG = "MyPostedJobsFragment";
     @BindView(R.id.recycler_myPostedJobs)
@@ -65,7 +66,7 @@ public class MyPostedJobsFragment extends BaseNewFragment implements TaskComplet
     private MyPostedJobAdapter mAdapter;
    // private List<UserList> ls = new ArrayList<>();
    private UserList saveditems;
-   private newUserListAdapter adapter;
+
 
     public MyPostedJobsFragment() {
         // Required empty public constructor
@@ -319,7 +320,7 @@ public class MyPostedJobsFragment extends BaseNewFragment implements TaskComplet
                         ArrayList<UserList> final_list = data_list.user_list;
 
 
-                        adapter = new newUserListAdapter(getActivity(), final_list, MyPostedJobsFragment.this);
+                         PostedAdapter   adapter = new PostedAdapter(getActivity(), final_list, MyPostedJobsFragment.this);
                         recyclerViewMyPostedJobs.setAdapter(adapter);
 
                     }
@@ -424,14 +425,6 @@ public class MyPostedJobsFragment extends BaseNewFragment implements TaskComplet
 
 
 
-                            /*
-                            *
-                            *   String key = finalDataSets.pid ;
-        String uid = finalDataSets.uid;
-        String apply = finalDataSets.jexpstatus;
-        String star = finalDataSets.isstarred;
-                            *
-                            * */
 
                             Intent i = new Intent(getActivity(), RenderPdfView.class);
                             i.putExtra("pdf",url+da.pdf);

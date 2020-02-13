@@ -277,7 +277,7 @@
             android:id="@+id/img_User"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/male_user"
+
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             />
@@ -312,13 +312,5 @@
 
 
 
-<!--    <FrameLayout-->
-
-<!--        android:layout_width="match_parent"-->
-<!--        android:id="@+id/container"-->
-<!--        android:layout_below="@id/chatMenu"-->
-<!--        android:layout_height="match_parent">-->
-
-<!--    </FrameLayout>-->
 
 </RelativeLayout>

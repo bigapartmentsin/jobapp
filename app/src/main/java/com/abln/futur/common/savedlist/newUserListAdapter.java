@@ -102,24 +102,24 @@ public class newUserListAdapter extends RecyclerView.Adapter<newUserListAdapter.
 
         final UserList data = mItems.get(position);
 
-        if (data.exp_status.equalsIgnoreCase("1")) {
+        if (data.exp_status.equals("1")) {
 
 
             holder.designationTV.setPaintFlags(holder.designationTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
-
             holder.experienceTV.setPaintFlags(holder.experienceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
 
+        }else{
+            holder.designationTV.setText(data.job_title);
+
+            String value = "" + data.job_experience_from + " - " + data.job_experience_to + "";
+            holder.experienceTV.setText("Experience " + value + " Yrs");
         }
 
         String img = "https://res.cloudinary.com/medinin/image/upload/v1562649354/futur" ;
         //
         loadImage(img+data.job_post_image10, holder.jobPostImageView);
-        holder.designationTV.setText(data.job_title);
 
-        String value = "" + data.job_experience_from + " - " + data.job_experience_to + "";
-        holder.experienceTV.setText("Experience " + value + " Yrs");
 
 
         if (data.exp_status.equalsIgnoreCase("")) {

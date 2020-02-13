@@ -7,10 +7,14 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import com.abln.futur.R;
 import com.abln.futur.activites.BaseActivity;
 import com.abln.futur.common.savedlist.SavedListFragment;
+import com.abln.futur.customViews.FragmentAdapter;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +35,10 @@ public class MyJobPostsActivity extends BaseActivity {
     View viewPosted;
 
 
+    @BindView(R.id.pager)
+    ViewPager viewPager;
+
+
     private Fragment[] mfragments;
 
     private SavedListFragment mySavedJobPostsFragment;
@@ -38,6 +46,9 @@ public class MyJobPostsActivity extends BaseActivity {
 
     private int index;
     private int currentTabIndex;
+
+
+    private ArrayList<Fragment> fragmentArrayList;
 
 
     @Override
@@ -50,14 +61,76 @@ public class MyJobPostsActivity extends BaseActivity {
         mySavedJobPostsFragment = new SavedListFragment();
         myPostedJobsFragment = new MyPostedJobsFragment();
 
-        mfragments = new Fragment[]{mySavedJobPostsFragment, myPostedJobsFragment};
 
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, mySavedJobPostsFragment)
-                .add(R.id.container, myPostedJobsFragment)
-                .hide(myPostedJobsFragment)
-                .show(mySavedJobPostsFragment).commit();
+
+
+        fragmentArrayList = new ArrayList<>();
+        fragmentArrayList.add(mySavedJobPostsFragment);
+        fragmentArrayList.add(myPostedJobsFragment);
+
+
+
+
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(this, fragmentArrayList);
+
+        viewPager.setAdapter(fragmentAdapter);
+        viewPager.setOffscreenPageLimit(2);
+
+        selectTab(0);
+
+
+
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                selectTab(position);
+            }
+        });
+
+
+
+    }
+
+
+    private void selectTab(int position) {
+        index = position;
+        switch (position) {
+            case 0:
+
+
+
+                viewPosted.setVisibility(View.VISIBLE);
+                viewSaved.setVisibility(View.INVISIBLE);
+                tvSaved.setTypeface(Typeface.DEFAULT);
+                tvPosted.setTypeface(Typeface.DEFAULT_BOLD);
+
+                viewSaved.setVisibility(View.VISIBLE);
+                viewPosted.setVisibility(View.INVISIBLE);
+                tvSaved.setTypeface(Typeface.DEFAULT_BOLD);
+                tvPosted.setTypeface(Typeface.DEFAULT);
+
+                break;
+
+            case 1:
+
+                viewSaved.setVisibility(View.VISIBLE);
+                viewPosted.setVisibility(View.INVISIBLE);
+                tvSaved.setTypeface(Typeface.DEFAULT_BOLD);
+                tvPosted.setTypeface(Typeface.DEFAULT);
+
+
+                viewPosted.setVisibility(View.VISIBLE);
+                viewSaved.setVisibility(View.INVISIBLE);
+                tvSaved.setTypeface(Typeface.DEFAULT);
+                tvPosted.setTypeface(Typeface.DEFAULT_BOLD);
+
+                break;
+
+
+        }
+
+        viewPager.setCurrentItem(position);
 
     }
 
@@ -66,18 +139,17 @@ public class MyJobPostsActivity extends BaseActivity {
     void onClickListener(View v) {
         switch (v.getId()) {
             case R.id.tvSaved:
-                index = 0;
-                viewSaved.setVisibility(View.VISIBLE);
-                viewPosted.setVisibility(View.INVISIBLE);
-                tvSaved.setTypeface(Typeface.DEFAULT_BOLD);
-                tvPosted.setTypeface(Typeface.DEFAULT);
+
+              selectTab(0);
+
+
                 break;
             case R.id.tvPosted:
-                index = 1;
-                viewPosted.setVisibility(View.VISIBLE);
-                viewSaved.setVisibility(View.INVISIBLE);
-                tvSaved.setTypeface(Typeface.DEFAULT);
-                tvPosted.setTypeface(Typeface.DEFAULT_BOLD);
+
+                selectTab(1);
+
+
+
 
                 break;
 
@@ -91,17 +163,9 @@ public class MyJobPostsActivity extends BaseActivity {
 
 
         }
-
-        if (currentTabIndex != index) {
-            FragmentTransaction trx = getSupportFragmentManager()
-                    .beginTransaction();
-            trx.hide(mfragments[currentTabIndex]);
-            if (!mfragments[index].isAdded()) {
-                trx.add(R.id.container, mfragments[index]);
-            }
-            trx.show(mfragments[index]).commit();
-        }
         currentTabIndex = index;
+
+
     }
 
 

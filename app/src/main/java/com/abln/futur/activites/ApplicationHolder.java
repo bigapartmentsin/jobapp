@@ -69,6 +69,7 @@ public class ApplicationHolder  extends RecyclerView.Adapter<ApplicationHolder.V
         holder.timestamp.setText(foo.time);
 
 
+
 //        holder.user_accept_button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -129,7 +130,7 @@ public class ApplicationHolder  extends RecyclerView.Adapter<ApplicationHolder.V
             }
         });
 
-      //  ImageLoader.loadImage(foo.can_details.avatar,holder.user_name);
+        ImageLoader.loadImage(foo.can_details.avatar,holder.user_name);
 
 
         holder.revert.setOnClickListener(new View.OnClickListener() {

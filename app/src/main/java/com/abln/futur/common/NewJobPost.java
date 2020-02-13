@@ -409,7 +409,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                 .simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerArrayAdapter);
     }
-
+    int value;
     private void imagefunction(String key) {
 
 
@@ -418,6 +418,8 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
             //value = true ;
             //index = 10;
+
+            //
 
 
             System.out.println("Getting the total number of image added"+galleryImages.size());
@@ -428,6 +430,10 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
             System.out.println("Ma");
 
+             value = galleryImages.size();
+             boolean launchautomated  = false;
+
+
 
 
             for (int i = 0; i < galleryImages.size(); i++) {
@@ -435,62 +441,171 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                 if (i == 0) {
 
+                    System.out.println("this is my value "+value+"value of i"+i);
+
+                    if (String.valueOf(i).equals(String.valueOf(value))){
+
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }else{
+                        launchautomated = false;
+                        System.out.println("enable false");
+                    }
 
 
-                    s1(key, galleryImages.get(i));
+
+                    s1(key, galleryImages.get(i), launchautomated);
 
 
                 } else if (i == 1) {
 
 
+                    if (i == value){
 
-                    s2(key, galleryImages.get(i));
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
+
+
+
+                    s2(key, galleryImages.get(i),launchautomated);
 
                 } else if (i == 2) {
 
 
 
+                    if (i == value){
 
-                    s3(key, galleryImages.get(i));
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
+
+
+                    s3(key, galleryImages.get(i),launchautomated);
 
                 } else if (i == 3) {
 
 
-                    s4(key, galleryImages.get(i));
+
+                    if (i == value){
+
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
+
+
+                    s4(key, galleryImages.get(i),launchautomated);
 
                 } else if (i == 4) {
 
 
 
+                    if (i == value){
 
-                    s5(key, galleryImages.get(i));
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
+
+
+                    s5(key, galleryImages.get(i),launchautomated);
 
                 } else if (i == 5) {
 
+                    if (i == value){
+
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
 
 
 
-                    s6(key, galleryImages.get(i));
+
+                    s6(key, galleryImages.get(i),launchautomated);
 
                 } else if (i == 6) {
 
 
 
+                    if (i == value){
+
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
 
 
-                    s7(key, galleryImages.get(i));
+
+                    s7(key, galleryImages.get(i), launchautomated);
 
 
                 } else if (i == 7) {
 
 
+                    if (i == value){
 
-                    s8(key, galleryImages.get(i));
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
+
+
+                    s8(key, galleryImages.get(i),launchautomated);
 
                 } else if (i == 8) {
 
 
-                    s9(key, galleryImages.get(i));
+
+                    if (i == value){
+
+                        //  handel value of the : data  //
+                        //
+
+                        System.out.println("enable true");
+
+                        launchautomated = true;
+
+                    }
+
+
+                    s9(key, galleryImages.get(i), launchautomated);
 
                 } else if (i == 9) {
 
@@ -819,7 +934,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                 }));
     }
 
-    private void s1(String value, String data) {
+    private void s1(String value, String data, boolean enable) {
 
 ///data/user/0/com.abln.futur/cache/download.jpeg
 
@@ -844,6 +959,21 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
+                            System.out.println("Im in s1");
+
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }else{
+
+                                System.out.println("calling automated images  false");
+                            }
+
+
+
+
+
                         }
 
                     }
@@ -861,7 +991,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
     }
 
-    private void s2(String value, String data) {
+    private void s2(String value, String data, boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -884,6 +1014,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                             UIUtility.showToastMsg_withErrorShort(getActivity(), baseResponse.statusMessage);
                         } else if (baseResponse.statuscode == 1) {
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
                         }
@@ -903,7 +1039,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
     }
 
-    private void s3(String value, String data) {
+    private void s3(String value, String data,boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -925,6 +1061,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                             UIUtility.showToastMsg_withErrorShort(getActivity(), baseResponse.statusMessage);
                         } else if (baseResponse.statuscode == 1) {
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
                         }
@@ -943,7 +1085,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
     }
 
-    private void s4(String value, String data) {
+    private void s4(String value, String data,boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -967,6 +1109,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
                         }
 
                     }
@@ -983,7 +1131,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
     }
 
-    private void s5(String value, String data) {
+    private void s5(String value, String data,boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -1007,6 +1155,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
                         }
 
                     }
@@ -1023,7 +1177,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
     }
 
-    private void s6(String value, String data) {
+    private void s6(String value, String data, boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -1047,6 +1201,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
                         }
 
                     }
@@ -1062,7 +1222,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                 })));
     }
 
-    private void s7(String value, String data) {
+    private void s7(String value, String data, boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -1086,6 +1246,13 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
+
                         }
 
                     }
@@ -1101,7 +1268,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                 })));
     }
 
-    private void s8(String value, String data) {
+    private void s8(String value, String data, boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -1125,6 +1292,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
 
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
+
                         }
 
                     }
@@ -1147,7 +1320,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
     }
 
-    private void s9(String value, String data) {
+    private void s9(String value, String data, boolean enable) {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "img_" + timeStamp;
         File file = new File(data);
@@ -1170,6 +1343,12 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                         } else if (baseResponse.statuscode == 1) {
 
                             UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
+
+                            if(enable){
+
+                                System.out.println("calling automated images ");
+
+                            }
 
                         }
 
