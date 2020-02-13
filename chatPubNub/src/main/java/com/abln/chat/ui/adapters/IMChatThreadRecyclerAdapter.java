@@ -153,6 +153,8 @@ public class IMChatThreadRecyclerAdapter extends RecyclerView.Adapter<RecyclerVi
             case CHILD:
                 ChatHistoryChildViewHolder chatHistoryChildViewHolder = (ChatHistoryChildViewHolder) holder;
                 resetChatHistoryChildViewHolder(chatHistoryChildViewHolder);
+
+                //TODO commented setchatmessage because its croupting
              //   setChatMessage(chatHistoryChildViewHolder, chatThreadItem);
                 setChatHistoryLastMessage(chatHistoryChildViewHolder, chatThreadItem);
                 setMessageTime(chatHistoryChildViewHolder, chatThreadItem);

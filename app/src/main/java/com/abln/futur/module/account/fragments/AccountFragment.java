@@ -2,9 +2,12 @@ package com.abln.futur.module.account.fragments;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +19,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.abln.chat.IMInstance;
+import com.abln.chat.ui.activities.IMChatActivity;
+import com.abln.chat.utils.PdfViewer;
 import com.abln.futur.R;
+import com.abln.futur.activites.DashboardActivity;
 import com.abln.futur.activites.SplashActivity;
 import com.abln.futur.common.AppConfig;
 import com.abln.futur.common.BaseResponse;
 import com.abln.futur.common.FLog;
+import com.abln.futur.common.FileDataHandler;
+import com.abln.futur.common.FileViewer;
 import com.abln.futur.common.FuturApiClient;
 import com.abln.futur.common.GlobalSingleCallback;
 import com.abln.futur.common.NewJobPost;
@@ -28,6 +36,7 @@ import com.abln.futur.common.PrefManager;
 import com.abln.futur.common.UIUtility;
 import com.abln.futur.common.models.AccountOne;
 import com.abln.futur.common.models.GetTotalNumberPost;
+import com.abln.futur.common.models.RequestGlobal;
 import com.abln.futur.common.models.TotalNumber;
 import com.abln.futur.common.newview.FinalDataSets;
 import com.abln.futur.common.postjobs.BaseNewFragment;
@@ -48,6 +57,13 @@ import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -57,6 +73,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
@@ -121,14 +138,147 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
 
     }
 
+
+    private void selectResumePopup() {
+        final CharSequence[] items = {"View Resume", "Upload New Resume",};
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+        builder.setTitle("");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                boolean result = UIUtility.checkPermission(getActivity());
+
+                if (items[item].equals("View Resume")) {
+                    if (result)
+                        UIUtility.showToastMsg_withAlertInfoShort(getActivity(),"View Resume");
+                         getfileurl();
+
+                } else if (items[item].equals("Upload New Resume")) {
+                    if (result)
+                        openfilepicker();
+
+
+                }
+            }
+        });
+        builder.show();
+    }
+
+
+public void viewResume(String url , String filename){
+
+
+
+
+
+
+
+}
+
+
+
+
+    String fileName;
+
+    private class GetFiles extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            String fileUrl = strings[0];
+            fileName = strings[1];
+            String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+            File folder = new File(extStorageDirectory, "FuturApp");
+            folder.mkdirs();
+            File pdfFile = new File(folder, fileName);
+            try {
+                pdfFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            downloadFile(fileUrl, pdfFile);
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            //move the intent here .
+            getUrl(fileName);
+
+
+        }
+    }
+
+
+    private static final int MEGABYTE = 1024 * 1024;
+    public static void downloadFile(String fileUrl, File directory) {
+        try {
+
+            URL url = new URL(fileUrl);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.connect();
+            InputStream inputStream = urlConnection.getInputStream();
+            FileOutputStream fileOutputStream = new FileOutputStream(directory);
+            int totalSize = urlConnection.getContentLength();
+            byte[] buffer = new byte[MEGABYTE];
+            int bufferLength = 0;
+            while ((bufferLength = inputStream.read(buffer)) > 0) {
+                fileOutputStream.write(buffer, 0, bufferLength);
+            }
+            fileOutputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //private static final int MEGABYTE = 1024 * 1024 ;
+    //public static void doiwnalodifle(String fileurl , File directory){
+    // urlconeciton.connect();
+    //
+    //fileoutputstrea . added out thefunction to add the main fucntion in the url
+    // }
+
+
+
+    //todo moving to the data handler
+    public void getUrl(String url) {
+
+        Intent i = new Intent(getContext(), FileViewer.class);
+        i.putExtra("url",url);
+        startActivity(i);
+
+    }
+
+
+
+
     @OnClick({R.id.resumeUpload, R.id.postaJob, R.id.myJobPosts, R.id.editPhoneNumber, R.id.editBasicDetails,
             R.id.editProfDetails, R.id.editOtherAccount, R.id.openSignOutDialog, R.id.raiseTicketSec,
             R.id.inviteFriends, R.id.rate_app_txt})
     void onCLick(View v) {
         switch (v.getId()) {
             case R.id.resumeUpload:
-               // uploadResume();
-                openfilepicker();
+
+
+
+//TODO handel the objec files
+
+                if (isexist){
+
+                    selectResumePopup();
+                }else {
+                    openfilepicker();
+                }
+
+
+
+
                 break;
 
             case R.id.postaJob:
@@ -253,23 +403,6 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
         if (requestCode == REQUEST_CODE_FOR_ON_ACTIVITY_RESULT_PDF) {
             if (null != data) { // checking empty selection
 
-//
-//                if (null != data.getClipData()) { // checking multiple selection or not
-//                    for (int i = 0; i < data.getClipData().getItemCount(); i++) {
-//                        Uri uri = data.getClipData().getItemAt(i).getUri();
-//                        FLog.d("Uri", "Multiple " + uri.getPath());
-//                        pdfFilePath = data.getClipData().getItemAt(i).getUri().toString();
-//                    }
-//                } else {
-//                    Uri uri = data.getData();
-//                    FLog.d("Uri", "Single " + uri.getPath());
-//                    pdfFilePath = data.getData().getPath();
-//
-//
-//
-//                }
-
-
                 Uri uri = data.getData();
                 String uriString = uri.toString();
                 File myFile = new File(uriString);
@@ -320,11 +453,15 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
 
     public void uploadNewResumeFunction(String key ,String data){
 
-
+        downloadForm(data,key);
 
     }
 
 
+
+    private void downloadForm(String Url_path, String file_name) {
+        new AccountFragment.GetFiles().execute(Url_path, file_name);
+    }
 
 
     private void openfilepicker() {
@@ -346,9 +483,6 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
         String imageFileName = "img_" + timeStamp;
         File file = new File(filname);
         RequestBody requestFile = RequestBody.create(MediaType.parse("*/*"), file);
-
-        System.out.println("Getting file name "+file.getName());
-
         MultipartBody.Part body = MultipartBody.Part.createFormData("pdf",file.getName(),requestFile);
         Map<String, RequestBody> partMap = new HashMap<>();
         partMap.put("apikey", RequestBody.create(MediaType.parse("text/plain"), prefManager.getApikey()));
@@ -360,6 +494,8 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
                     public void onApiSuccess(BaseResponse baseResponse) {
 
 
+                        UIUtility.showToastMsg_withSuccessShort(mContext,"Resume uploaded Successfully");
+
                         ispdfexist();
                     }
                     @Override
@@ -369,6 +505,56 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
                 })));
 
 
+
+    }
+
+
+//TODO resume file url
+
+
+    private void getfileurl(){
+        RequestGlobal fileview = new RequestGlobal();
+        fileview.apikey = prefManager.getApikey();
+        compositeDisposable.add(apiService.viewfile("v1/view-resume",fileview)
+        .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new GlobalSingleCallback<BaseResponse<FileDataHandler>>(true,this)
+                               {
+                                   @Override
+                                   public void onFailure(Throwable e) {
+
+                                   }
+
+
+                                   @Override
+                                   public void onApiSuccess(BaseResponse baseResponse) {
+
+
+
+                                       if (baseResponse.statuscode == 1){
+
+
+                                        FileDataHandler data = (FileDataHandler)   baseResponse.data;
+
+                                        uploadNewResumeFunction(data.filename,data.file);
+
+
+
+                                       }else{
+
+                                           UIUtility.showToastMsg_withErrorShort(getActivity(),"Network Error ");
+
+                                       }
+
+                                   }
+
+
+
+                               }
+
+                )
+
+        );
 
     }
 
@@ -417,14 +603,10 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
     }
 
 
-
+    boolean isexist;
     private void ispdfexist() {
-
-
         post data = new post();
         data.apikey = prefManager.getApikey();
-
-
         compositeDisposable.add(apiService.checkresume("v1/get-resume",data)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -435,14 +617,15 @@ public class AccountFragment extends BaseNewFragment implements TaskCompleteList
 
                         if (baseResponse.statuscode == 0) {
 
-
-                            ivresume.setImageDrawable(mContext.getDrawable(R.drawable.ic_upload_resume_icon));
+                            isexist=false;
+                          //  ivresume.setImageDrawable(mContext.getDrawable(R.drawable.ic_upload_resume));
                             // resume not found
 
                         } else {
 
 
-                            ivresume.setImageDrawable(mContext.getDrawable(R.drawable.ic_update_resume));
+                          //  ivresume.setImageDrawable(mContext.getDrawable(R.drawable.ic_update_resume_new));
+                            isexist=true;
 
                             //resume found
                         }

@@ -179,8 +179,13 @@
                             app:steps="1"
                             app:bar_color="#CCCCCC"
                             app:bar_highlight_color="#9060EB"
-                            app:left_thumb_image="@drawable/seekbar_thumbshape"
-                            app:right_thumb_image="@drawable/seekbar_thumbshape"
+                            app:left_thumb_image="@drawable/expcircle_"
+                            app:right_thumb_image="@drawable/expcircle_"
+                            app:left_thumb_image_pressed="@drawable/expcircle"
+                            app:right_thumb_image_pressed="@drawable/expcircle"
+
+
+
                             app:data_type="_integer">
 
                         </com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar>

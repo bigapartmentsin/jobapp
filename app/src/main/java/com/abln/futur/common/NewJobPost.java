@@ -63,6 +63,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -417,6 +418,17 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
             //value = true ;
             //index = 10;
+
+
+            System.out.println("Getting the total number of image added"+galleryImages.size());
+            System.out.println("Moving the adding new posts");
+
+            System.out.println("Taking the data to the background thread");
+
+
+            System.out.println("Ma");
+
+
 
             for (int i = 0; i < galleryImages.size(); i++) {
 
@@ -1264,28 +1276,14 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                                 sendthumbnail(finalkey, logo_string);
                             }
 
+//todo handling exception for the day to life ;
+                            try {
+                                movingToNext(je);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
 
 
-                            Date date = new Date();
-                            String information =   DateFormat.getDateInstance(DateFormat.FULL).format(date);
-                            String res[] = information.split(",");
-                            String day = res[0];
-
-                            System.out.println("Error here "+day);
-                            String mDate = res[1];
-                            String finalweek =   day.substring(0,3);
-                            String month[] = mDate.split("\\s+");
-                            String finalmonth = month[1].substring(0,3);
-                            String posted = finalweek+" "+month[2]+" "+finalmonth;
-                            Intent i = new Intent(getActivity(),RandomAct.class);
-                            i.putExtra("title", jobtitletext.getText().toString());
-                            i.putExtra("comName", cname_edit_text.getText().toString());
-                            i.putExtra("exper",je) ;
-                            i.putExtra("fkey",finalkey);
-                            i.putExtra("date",posted);
-                            //time function for show in formate //
-                            startActivity(i);
-                            UIUtility.showToastMsg_withSuccessShort(getActivity(), baseResponse.statusMessage);
                         }
 
                     }
@@ -1299,6 +1297,83 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
                     }
                 })));
+    }
+
+
+
+    private void movingToNext(String je ) throws ParseException {
+
+        Date date = new Date();
+        String currentDate = new SimpleDateFormat("E dd MMM yyyy", Locale.getDefault()).format(new Date());
+        System.out.println("Checking new date fromat"+currentDate);
+
+        String newers[] = currentDate.split("\\s+");
+
+        for (String a :newers
+             ) {
+
+            System.out.println("new breaking string"+a);
+
+        }
+
+
+
+                                    String posted = newers[0]+" "+newers[1]+" "+newers[2];
+                            Intent i = new Intent(getActivity(),RandomAct.class);
+                            i.putExtra("title", jobtitletext.getText().toString());
+                            i.putExtra("comName", cname_edit_text.getText().toString());
+                            i.putExtra("exper",je) ;
+                            i.putExtra("fkey",finalkey);
+                            i.putExtra("date",posted);
+                            //time function for show in formate //
+                            startActivity(i);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//https://stackoverflow.com/questions/17192776/get-value-of-day-month-from-date-object-in-android
+
+
+
+
+
+
+
+
+
+//
+//        2020-02-12 18:06:05.453 26629-26629/com.abln.futur I/System.out: 17-02-2020
+//        2020-02-12 18:06:08.560 26629-26629/com.abln.futur I/System.out: Error here Wednesday
+//        2020-02-12 18:06:08.560 26629-26629/com.abln.futur I/System.out: Err February 12
+//        2020-02-12 18:06:08.561 26629-26629/com.abln.futur I/System.out: MonthFebruary
+
+
+
+//
+//                            String posted = finalweek+" "+month[2]+" "+finalmonth;
+//                            Intent i = new Intent(getActivity(),RandomAct.class);
+//                            i.putExtra("title", jobtitletext.getText().toString());
+//                            i.putExtra("comName", cname_edit_text.getText().toString());
+//                            i.putExtra("exper",je) ;
+//                            i.putExtra("fkey",finalkey);
+//                            i.putExtra("date",posted);
+//                            //time function for show in formate //
+//                            startActivity(i);
+
+
+
     }
 
     private void normalJobPost(String jt, String jc, String tva, String lat, String lag, String rangfrom, String rangto) {
@@ -1708,9 +1783,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
 
     private void getdata() {
-
-
-        compositeDisposable.add(apiService.getfulldata("v1/full-title")
+        compositeDisposable.add(apiService.getfulldata("v1/post-title")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new GlobalSingleCallback<BaseResponse<Title>>(true, this) {
@@ -1734,32 +1807,6 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
                     }
                 }));
     }
-
-
-
-
-    /*
-    *
-    *     private void makeCallToGetLoginDetails() {
-        FuturProgressDialog.show(mContext, false);
-        GetLoginRequest getLoginRequest = new GetLoginRequest();
-        getLoginRequest.setMobile(countryCode.getSelectedCountryCodeWithPlus() + etMobileNumber.getText().toString());
-
-
-        HashMap<String, String> headerMap = new HashMap<>();
-        headerMap.put("Content-Type", "application/json");
-
-        Intent intent = new Intent(mContext, NetworkOperationService.class);
-
-        intent.putExtra(NetworkConfig.API_URL, NetworkConfig.login);
-        intent.putExtra(NetworkConfig.HEADER_MAP, headerMap);
-        intent.putExtra(NetworkConfig.INPUT_BODY, getLoginRequest);
-        mContext.startService(intent);
-        etMobileNumber.setEnabled(false);
-        btnGetOTP.setEnabled(false);
-    }
-    *
-    * */
 
 
 

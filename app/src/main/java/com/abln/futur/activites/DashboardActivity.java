@@ -363,17 +363,6 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
 
 
-    private void uploadImageAvatar(){
-
-
-
-
-
-    }
-
-
-
-
 
     private void setPopup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

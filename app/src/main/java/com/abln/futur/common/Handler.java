@@ -295,6 +295,12 @@ public interface Handler {
 
 
 
+    //v1/view-resume
+    @POST("{a}")
+    Single<BaseResponse<FileDataHandler>> viewfile(@Path(value = "a", encoded = true) String info,@Body RequestGlobal key);
+
+
+
 
 
 

@@ -271,7 +271,7 @@ public class ChatsFragment extends BaseFragment implements TaskCompleteListener,
     @Override
     public void onChatMessageReceived(int totalUnSeenChatMsgCount, IMChatMessage latestChatMessage) {
 
-      
+
 
     }
 

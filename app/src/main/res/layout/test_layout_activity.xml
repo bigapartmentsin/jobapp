@@ -1,0 +1,77 @@
+<RelativeLayout android:id="@+id/llIconsUploadResume"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/resumeUpload"
+        android:layout_margin="5dp"
+        android:layout_width="167dp"
+        android:layout_height="115dp"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/upate_resume_bg"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_file_icon_post_job"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="50dp"
+        >
+
+    </ImageView>
+    <TextView
+        android:layout_width="142dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="70dp"
+        android:text="Upload Resume"
+
+        android:textAlignment="center"
+        android:textColor="#594D77"
+        >
+
+    </TextView>
+
+
+
+
+    <ImageView
+        android:id="@+id/postaJob"
+        android:layout_width="167dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="5dp"
+
+        android:layout_toRightOf="@+id/resumeUpload"
+        android:src="@drawable/post_a_new_job" />
+
+
+
+    <ImageView
+        android:id="@+id/postaJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/resumeUpload"
+        android:src="@drawable/ic_briefcase" />
+
+
+    <TextView
+        android:layout_width="142dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="70dp"
+        android:text="Post Job"
+        android:layout_marginLeft="180dp"
+        android:textAlignment="center"
+        android:textColor="#594D77"
+        >
+
+    </TextView>
+
+
+
+
+</RelativeLayout>

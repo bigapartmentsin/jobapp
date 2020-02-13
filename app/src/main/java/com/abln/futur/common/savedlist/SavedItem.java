@@ -2,6 +2,7 @@ package com.abln.futur.common.savedlist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.abln.futur.R;
 import com.abln.futur.common.ImageLoader;
+import com.abln.futur.common.UIUtility;
 
 import java.util.ArrayList;
 
@@ -60,6 +62,20 @@ public class SavedItem extends RecyclerView.Adapter<SavedItem.ViewHolder> {
 
 
         //image view click;
+
+
+        if (foo.exp_status.equalsIgnoreCase("1")) {
+
+
+            holder.savedtitle.setPaintFlags(holder.savedtitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+
+            holder.savedexperience.setPaintFlags(holder.savedexperience.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+
+
+        }
+
 
         holder.saveimageview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +125,7 @@ public class SavedItem extends RecyclerView.Adapter<SavedItem.ViewHolder> {
         } else {
 
             holder.savedapplyjob.setBackground(mcontext.getDrawable(R.drawable.ic_applied));
+            holder.savedapplyjob.setClickable(false);
 
         }
 
@@ -120,8 +137,23 @@ public class SavedItem extends RecyclerView.Adapter<SavedItem.ViewHolder> {
             @Override
             public void onClick(View v) {
 
-                clickHandler.onapplyClick(foo);
-                notifyDataSetChanged();
+
+
+                if (foo.exp_status.equalsIgnoreCase("1")) {
+
+                    UIUtility.showToastMsg_withErrorShort(mcontext,"You cannot apply to an expired post ");
+
+                }else{
+
+                    clickHandler.onapplyClick(foo);
+                    notifyDataSetChanged();
+
+                }
+
+
+
+
+
 
             }
         });

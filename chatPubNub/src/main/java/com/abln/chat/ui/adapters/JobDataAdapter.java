@@ -2,6 +2,7 @@ package com.abln.chat.ui.adapters;
 
 import android.content.Context;
 import android.graphics.Paint;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.abln.chat.R;
 import com.abln.chat.utils.ModChat;
 import com.abln.chat.utils.Models;
+import com.bumptech.glide.Glide;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -65,11 +67,29 @@ public class JobDataAdapter  extends  RecyclerView.Adapter<JobDataAdapter.ViewHo
         holder.savedexperience.setText("Experience :" + foo.job_experience_from + " - " + foo.job_experience_to +" Yrs");
         holder.savedtitle.setText(foo.job_title);
       //  ImageLoader.loadImage(foo.first_pic,holder.ivinboximg);
+
+
+
         holder.center_textview.setText(foo.name);
 
 
+        Glide.with(mcontext).load(foo.first_pic)
+                .dontAnimate()
+                .into(holder.ivinboximg);
 
+
+
+
+
+
+        
     }
+
+
+
+
+
+
 
 
     @Override

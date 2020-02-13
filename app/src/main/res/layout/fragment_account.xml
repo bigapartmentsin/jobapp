@@ -33,17 +33,17 @@
                         android:id="@+id/resumeUpload"
                         android:layout_margin="5dp"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="115dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_upload_resume_icon"/>
+                        android:src="@drawable/u_resument"/>
 
                     <ImageView
                         android:id="@+id/postaJob"
                         android:layout_margin="5dp"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="115dp"
                         android:layout_weight="1"
-                        android:src="@drawable/ic_post_a_job"/>
+                        android:src="@drawable/poster_"/>
                 </LinearLayout>
 
 

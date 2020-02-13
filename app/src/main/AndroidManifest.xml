@@ -22,9 +22,9 @@
     <application
         android:name=".common.AppConfig"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/addingnew"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/addingnew"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:icon">
@@ -39,14 +39,24 @@
 
         </activity>
 
+        <activity android:name=".common.FileViewer"
+            android:screenOrientation="portrait"
+            >
 
-        <activity android:name=".utils.Pdfviewer">
+        </activity>
+
+
+        <activity android:name=".utils.Pdfviewer"
+            android:screenOrientation="portrait"
+            >
 
 
 
         </activity>
 
-        <activity android:name=".utils.NetworkPdfviewr">
+        <activity android:name=".utils.NetworkPdfviewr"
+            android:screenOrientation="portrait"
+            >
 
 
 
@@ -60,8 +70,13 @@
 
         </activity>
 
-        <activity android:name=".utils.DataChange"></activity>
-        <activity android:name=".RandomAct">
+        <activity android:name=".utils.DataChange"
+            android:screenOrientation="portrait"
+
+            ></activity>
+        <activity android:name=".RandomAct"
+            android:screenOrientation="portrait"
+            >
 
 
 
@@ -176,7 +191,9 @@
 
         </activity>
 
-        <activity android:name=".activites.Analytics">
+        <activity android:name=".activites.Analytics"
+            android:screenOrientation="portrait"
+            >
 
 
 
@@ -184,21 +201,27 @@
         </activity>
 
 
-        <activity android:name=".activites.ListApplicataints">
+        <activity android:name=".activites.ListApplicataints"
+            android:screenOrientation="portrait"
+            >
 
 
 
 
         </activity>
 
-        <activity android:name=".activites.TestDateActivity">
+        <activity android:name=".activites.TestDateActivity"
+            android:screenOrientation="portrait"
+            >
 
 
 
 
         </activity>
 
-        <activity android:name=".activites.RenderPdfView">
+        <activity android:name=".activites.RenderPdfView"
+            android:screenOrientation="portrait"
+            >
 
 
 
@@ -206,27 +229,40 @@
         </activity>
 
 
-        <activity android:name=".activites.PdfViewer">
+        <activity android:name=".activites.PdfViewer"
+            android:screenOrientation="portrait"
+            >
 
         </activity>
 
 
 
-        <activity android:name=".common.models.model">
+        <activity android:name=".common.models.model"
+            android:screenOrientation="portrait"
+            >
 
 
         </activity>
 
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activites.EULAActivity" />
-        <activity android:name=".common.UCEDefaultActivity" />
+        <activity android:name=".activites.EULAActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".common.UCEDefaultActivity"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".activites.BaseActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".DuplicateActivity" />
+        <activity android:name=".DuplicateActivity"
+
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".module.global.activities.MapsActivity"
-            android:label="Maps" />
+            android:label="Maps"
+            android:screenOrientation="portrait"
+            />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

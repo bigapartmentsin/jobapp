@@ -150,7 +150,7 @@ public class MyPostedJobsFragment extends BaseNewFragment implements TaskComplet
                 for (int i = 0; i < parserresp.getData().getUserList().size(); i++) {
 
 
-                  //  ls.add(parserresp.getData().getUserList().get(i));
+
 
 
 
@@ -301,7 +301,7 @@ public class MyPostedJobsFragment extends BaseNewFragment implements TaskComplet
 
 
 
-    /// all new function is adding
+
 
 
     private void getsaveddata() {

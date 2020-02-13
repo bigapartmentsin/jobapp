@@ -28,4 +28,7 @@ public class TourGuidePage1 extends Fragment {
         return inflater.inflate(R.layout.fragment_tour_guide_page1, container, false);
     }
 
+
+
+
 }

@@ -271,15 +271,25 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="horizontal"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <com.abln.chat.utils.CircleImageView
             android:id="@+id/img_User"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:src="@drawable/male_user"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             />
+
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/ic_plus_icon"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="24dp"
+            ></ImageView>
 
 
         <ImageView

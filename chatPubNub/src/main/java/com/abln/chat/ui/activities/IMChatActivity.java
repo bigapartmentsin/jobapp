@@ -260,11 +260,6 @@ JobDataAdapter inboxitem;
 
 
 
-
-
-
-
-
                         } else if (baseResponse.statuscode == 0) {
 
 
@@ -287,8 +282,7 @@ JobDataAdapter inboxitem;
 
                             System.out.println("File"+a.file);
                             System.out.println("File Name "+a.filename);
-
-                             downloadForm(a.file,a.filename);
+                            downloadForm(a.file,a.filename);
 
                          }
 

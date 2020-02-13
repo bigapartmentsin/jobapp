@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -119,6 +120,8 @@ SplashActivity extends BaseActivity implements TaskCompleteListener {
 
 
     private void startAnimation() {
+
+        bgLogo.setVisibility(View.VISIBLE);
 
         final Animation zoomAnimation = AnimationUtils.loadAnimation(getBaseContext(), R.anim.zoom);
         bgLogo.startAnimation(zoomAnimation);

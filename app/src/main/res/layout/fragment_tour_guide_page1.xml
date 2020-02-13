@@ -12,49 +12,28 @@
 
         <ImageView
             android:id="@+id/logo_img"
-            android:layout_width="130dp"
-            android:layout_height="170dp"
-            android:src="@drawable/ic_logo1"
+            android:layout_width="223dp"
+            android:layout_height="124dp"
+            android:src="@drawable/futur_new_logo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/l1AppName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_futur_app_text_login"
             android:layout_below="@id/logo_img">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textStyle="bold"
-                android:textColor="@color/text_color_black"
-                android:textAllCaps="true"
-                android:textSize="40dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:textSize="30dp"
-                android:textStyle="normal"
-                android:textColor="@color/text_color_black"
-                android:text="App"/>
 
 
-        </LinearLayout>
 
-        <TextView
-            android:layout_below="@id/l1AppName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/welcomeText"
-            android:textSize="20dp"
-            android:gravity="center"/>
+        </TextView>
+
+
 
 
 

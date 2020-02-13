@@ -62,6 +62,20 @@
             android:layout_toRightOf="@id/jobPostImageView"
             android:layout_below="@id/expTV">
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/repost"
+                android:textAlignment="center"
+                android:paddingTop="5dp"
+                android:text="Repost"
+                android:background="@drawable/ic_repost"
+                android:layout_alignParentStart="true"
+                android:layout_height="wrap_content">
+
+
+            </TextView>
+
             <TextView
                 android:id="@+id/showTimerIcon"
                 android:layout_width="wrap_content"
@@ -69,6 +83,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_margin="5dp"
                 android:clickable="true"
+                android:visibility="gone"
                 android:background="@drawable/ic_clock_running"/>
 
             <TextView
@@ -79,6 +94,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:clickable="true"
+                android:visibility="gone"
                 android:background="@drawable/ic_share_btn"/>
 
             <TextView
