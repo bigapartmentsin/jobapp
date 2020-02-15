@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:elevation="0dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="0dp"
+        card_view:cardElevation="0dp"
+        card_view:cardUseCompatPadding="true"
+
+        android:id="@+id/basicDetailSec"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlJobRoles"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <View
+                    android:layout_width="350dp"
+                    android:id="@+id/openresume"
+                    android:tag="0"
+                    android:layout_height="70dp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:id="@+id/userIcon"
+                    android:src="@drawable/male_user">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <TextView
+                    android:id="@+id/userNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/userIcon"
+                    android:textColor="#667480"
+                    android:lineHeight="15sp"
+                    android:fontFamily="@font/mulibold"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="12sp"
+                    android:text="Baskar Rao P" />
+
+                <TextView
+                    android:id="@+id/userDesignation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/userIcon"
+                    android:layout_below="@id/userNameText"
+                    android:textColor="#8E63E6"
+                    android:lineHeight="13sp"
+                    android:fontFamily="@font/muliregular"
+                    android:text="Android Developer" />
+
+                <CheckBox
+                    android:id="@+id/radioBtnSelectUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+
+                    android:layout_alignParentEnd="true"
+                    />
+
+                <ImageView
+                    android:id="@+id/rlActionImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow_right_grey"
+                    android:layout_below="@id/userDesignation"
+                    android:layout_centerInParent="true"
+                    android:rotation="90"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:fontFamily="@font/muliregular"
+                    android:textSize="6sp"
+                    android:id="@+id/distance"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/radioBtnSelectUser"
+                    android:layout_marginEnd="60dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="5dp"
+                    android:layout_below="@id/distance"
+                    android:background="#AFBFC6"/>
+
+            </RelativeLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pat_details_wrap"
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+
+        android:elevation="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="0dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basicDetailSec">
+
+        <LinearLayout
+            android:id="@+id/linearLayout8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="EXP :"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/expreience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="2dp"
+                    android:fontFamily="@font/mulisemibold"
+                    android:textAllCaps="true"
+                    android:textColor="#000"
+                    android:text=""
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+
+                    android:textColor="#74273951"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/patAgeTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:fontFamily="@font/mulisemibold"
+
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+
+                    android:textColor="#74273951"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/patGenderTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:fontFamily="@font/mulisemibold"
+
+                    android:textAllCaps="true"
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_marginStart="16dp"
+
+                    android:textColor="#74273951"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/countryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="-2dp"
+
+
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/patMobileTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-2dp"
+
+                    android:fontFamily="@font/mulisemibold"
+                    android:paddingStart="2dp"
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/lastVisitDateTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="14dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/mulisemibold"
+            android:paddingRight="2dp"
+
+            android:textColor="#708190"
+            android:textSize="11sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+
+        <LinearLayout
+            android:id="@+id/bottomBarBtn"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="bottom|center"
+            android:visibility="visible"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastVisitDateTxt">
+
+            <View
+                android:layout_width="48dp"
+                android:layout_height="5dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/white_circle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

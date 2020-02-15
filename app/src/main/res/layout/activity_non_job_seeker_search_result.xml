@@ -65,28 +65,43 @@
         android:layout_height="wrap_content"/>
 
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
         android:id="@+id/searchJobsRole"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
+        android:background="@drawable/bottom_search"
+        android:ems="10"
+        android:hint="Search People by Job Title, Keyword.."
         app:queryHint="@string/search_people_msg"
         android:layout_marginBottom="5dp"
-        android:layout_above="@id/sendJobInvite"
-        android:background="@drawable/white_box_cornered"/>
+        android:layout_above="@id/button"
+      />
 
-    <TextView
-        android:id="@+id/sendJobInvite"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginEnd="5dp"
-        android:gravity="center"
-        android:textAllCaps="true"
-        android:background="@color/colorPurple"
-        android:tag="true"
-        android:enabled="false"
-        android:text="@string/send_job_invite"
-        android:textColor="@color/filterTextColor"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:id="@+id/button"
+
+        android:layout_height="51dp">
+
+
+        <TextView
+            android:id="@+id/sendJobInvite"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:background="@drawable/send_invite"
+            android:tag="true"
+            android:visibility="gone"
+            android:text="@string/send_job_invite"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
 
 
 

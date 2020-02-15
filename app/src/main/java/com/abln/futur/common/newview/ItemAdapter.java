@@ -117,8 +117,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
                     clickHandler.redirect(js);
 
-
-
                 }
             });
 

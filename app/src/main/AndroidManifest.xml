@@ -15,28 +15,23 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-
-
-
     <application
         android:name=".common.AppConfig"
         android:allowBackup="true"
-        android:icon="@mipmap/addingnew"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/addingnew"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup,android:icon">
-
-
         <activity android:name=".activites.chatHandler.ChatHandlerActivity">
 
+        </activity>
 
 
+        <activity android:name=".activites.DatabaseUserSearch"
+            android:screenOrientation="portrait"
 
-
-
+            >
         </activity>
 
         <activity android:name=".common.FileViewer"
@@ -57,17 +52,12 @@
         <activity android:name=".utils.NetworkPdfviewr"
             android:screenOrientation="portrait"
             >
-
-
-
-
         </activity>
 
 
         <activity android:name=".common.newview.DataView"
             android:screenOrientation="portrait"
             >
-
         </activity>
 
         <activity android:name=".utils.DataChange"
@@ -77,11 +67,6 @@
         <activity android:name=".RandomAct"
             android:screenOrientation="portrait"
             >
-
-
-
-
-
         </activity>
 
 

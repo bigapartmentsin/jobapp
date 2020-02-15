@@ -38,6 +38,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.abln.futur.MainActivity;
 import com.abln.futur.R;
+import com.abln.futur.activites.DatabaseUserSearch;
 import com.abln.futur.common.BaseResponse;
 import com.abln.futur.common.GlobalSingleCallback;
 import com.abln.futur.common.Name;
@@ -651,8 +652,8 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
                 UIUtility.showToastMsg_withAlertInfoShort(mContext, "Select the job category to continue");
                 return;
             }
-            Intent ii = new Intent(mContext, NonJobSeekerSearchResultActivity.class);
-            ii.putExtra("Angle", currAngle);
+            Intent ii = new Intent(mContext, DatabaseUserSearch.class);
+         //   ii.putExtra("Angle", currAngle);
             startActivity(ii);
 
 

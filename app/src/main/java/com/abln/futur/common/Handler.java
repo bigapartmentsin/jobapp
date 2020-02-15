@@ -311,6 +311,12 @@ public interface Handler {
     Single<BaseResponse<ImageData>> getavatar(@Body RequestGlobal key);
 
 
+    @POST("v1/users-search")
+    Single<BaseResponse<AppliedData>> getusersearch(@Body RequestGlobal key);
+
+
+
+
 
 
 

@@ -12,5 +12,13 @@ public class RequestGlobal {
     public String pid;
 
 
+    public String lat;
+    public String lng;
+    public String radius;
+    public String industry;
+
+
+
+
 
 }
