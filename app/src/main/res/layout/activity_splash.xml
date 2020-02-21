@@ -23,7 +23,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:visibility="gone"
-            android:src="@drawable/futur_new_logo" />
+            android:src="@drawable/futur_logo_" />
 
     </RelativeLayout>
 

@@ -196,9 +196,6 @@ PrefManager prefManager = new PrefManager();
                     }
                 }));
 
-
-
-
     }
 
 

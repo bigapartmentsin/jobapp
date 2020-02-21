@@ -1,5 +1,6 @@
 package com.abln.futur.common;
 
+import com.abln.futur.common.models.PostDataModel;
 import com.abln.futur.common.newview.FinalDataSets;
 import com.abln.futur.common.savedlist.Savedlist;
 import com.abln.futur.common.savedlist.UserList;
@@ -19,8 +20,10 @@ public class Address implements Serializable {
     public ArrayList<Savedlist> result;
 
 
-    public ArrayList<UserList>    user_list;
+    public ArrayList<UserList>   user_list;
 
     public ArrayList<ModChat> post_list;
+
+
 
 }

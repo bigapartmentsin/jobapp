@@ -56,9 +56,29 @@ public class ProfessionDetailsFragment extends BaseFragment implements TaskCompl
     private NetworkOperationService mService;
     private PrefManager prefManager = new PrefManager();
 
-    private String[] industry = new String[]{"Select industry", "Tech", "Arts & Entertainment",
-            "Banking", "Consulting", "Media & Journalism", "VC & Investment", "Education & Academia", "Governement & Politics",
-            "Advertising", "Property Sales & Letting", "Construction", "Food & Beverages", " Travel & Hospitality", "Manufacturing", "Others"};
+    private String[] industry = new String[]{
+            "Select industry",
+            "Tech",
+            "Arts & Entertainment",
+            "Banking",
+            "Consulting",
+            "Media & Journalism",
+            "VC & Investment",
+            "Education & Academia",
+            "Government & Politics",
+            "Advertising",
+            "Property Sales & Letting",
+            "Construction",
+            "Food & Beverages",
+            "Beauty & Wellness",
+            "Driver & Delivery",
+            "Events & Promotion",
+            "Travel & Hospitality",
+            "Manufacturing",
+            "Others"
+    };
+
+
 
 
     public ProfessionDetailsFragment() {

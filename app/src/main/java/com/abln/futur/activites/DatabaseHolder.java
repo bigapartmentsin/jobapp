@@ -15,6 +15,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -43,26 +44,24 @@ import de.hdodenhof.circleimageview.CircleImageView;
     private final LayoutInflater mInflater;
     private Context mcontext;
     EventHandler eventHandler;
-       public ArrayList<SearchDatamodel> originalList;
 
-
-       private String mSearchText="";
-
-
+    public ArrayList<SearchDatamodel> originalList;
+    private String mSearchText="";
     ArrayList<SearchDatamodel> selectedelement;
 
 
 
     public  DatabaseHolder(Context mcontext, ArrayList<SearchDatamodel> items,EventHandler handler){
-
         this.mcontext = mcontext;
         this.mItems = items;
         this.originalList = items;
         mInflater = LayoutInflater.from(mcontext);
         this.eventHandler = handler;
 
-
     }
+
+
+
 
 
     @NonNull
@@ -77,19 +76,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
     @Override
     public void onBindViewHolder(@NonNull DatabaseViewHolder holder, int position) {
-
-
-
         final SearchDatamodel foo = mItems.get(position);
 
-
-
-
-
-
+        int endPos;
+        int startPos;
         String nameFullText = foo.occupation;
-        int startPos = nameFullText.toLowerCase(Locale.US).indexOf(mSearchText.toLowerCase(Locale.US));
-        int endPos = startPos + mSearchText.length();
+        startPos = nameFullText.toLowerCase(Locale.US).indexOf(mSearchText.toLowerCase(Locale.US));
+        endPos = startPos + mSearchText.length();
+
+
 
         if (startPos != -1) {
             Spannable spannable = new SpannableString(nameFullText);
@@ -102,11 +97,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
         }
 
 
+
+
         holder.userNameText.setText(foo.first_name);
         holder.distance.setText(foo.distance);
-       // holder.userDesignation.setText(foo.occupation);
-
-
         ImageLoader.loadImage(foo.avatar,holder.userimage);
 
 
@@ -116,25 +110,22 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
                 holder.detailwrap.setVisibility(View.VISIBLE);
 
-
-
-
-
-
             }
         });
 
 
+
+
+
+
+
+
         holder.expreience.setText(foo.experience);
-
-
-
-        if (foo.gender.equals("Male")){
+        if (foo.gender.equals("Male") || foo.gender.equals("male")){
 
             holder.detailwrap.setBackground(mcontext.getDrawable(R.drawable.male_resume));
 
         }else{
-
             holder.detailwrap.setBackground(mcontext.getDrawable(R.drawable.female_resume));
 
         }
@@ -156,31 +147,36 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
         //handling the inforamtion of the datasets ;
 
-        final AnimationSet animSet = new AnimationSet(true);
-        animSet.setInterpolator(new DecelerateInterpolator());
-        animSet.setFillAfter(true);
-        animSet.setFillEnabled(true);
-        final Animation slide_down = AnimationUtils.loadAnimation(mcontext,
-                R.anim.slide_down);
 
-        final Animation slide_up = AnimationUtils.loadAnimation(mcontext,
-                R.anim.slide_up);
+
+
+
+
 
         holder.openresume.setOnClickListener(view -> {
             String _tag = holder.openresume.getTag().toString();
             if (_tag.equals("0")) {
                 holder.openresume.setTag(1);
-
                 holder.rlActionImage.setRotation(270);
-
                 holder.detailwrap.setVisibility(View.VISIBLE);
             } else {
+
                 holder.openresume.setTag(0);
                 holder.rlActionImage.setRotation(90);
                 holder.detailwrap.setVisibility(View.GONE);
             }
 
         });
+
+        String closeTag = holder.openresume.getTag().toString();
+        if (closeTag.equals("0")){
+
+            holder.detailwrap.setVisibility(View.GONE);
+
+        }else{
+
+            holder.detailwrap.setVisibility(View.VISIBLE);
+        }
 
 
         holder.layout.setOnClickListener(new View.OnClickListener() {
@@ -194,35 +190,67 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 
-        holder.checkBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                if (holder.checkBox.isChecked()){
-
-                    System.out.println("Checked");
-                    eventHandler.onItemCheck(foo);
-
-
-                }else{
-                    System.out.println("Unchecked");
-                    eventHandler.onItemUncheck(foo);
-                }
-
-            }
-        });
 
 
 
+//        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                if (holder.checkBox.isChecked()){
+//
+//                    System.out.println("Checked");
+//                    eventHandler.onItemCheck(foo);
+//                    notifyDataSetChanged();
+//
+//                }else{
+//                    System.out.println("Unchecked");
+//                    eventHandler.onItemUncheck(foo);
+//                    notifyDataSetChanged();
+//                }
+//
+//            }
+//        });
+
+
+        if (foo.isSelected()){
+            holder.checkBox.setBackground(mcontext.getDrawable(R.drawable.ic_oval_selected));
+
+        }else{
+            holder.checkBox.setBackground(mcontext.getDrawable(R.drawable.ic_oval_unselected));
+        }
+
+
+        holder.checkBox.setChecked(foo.isSelected());
+
+holder.checkBox.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        foo.setSelected(!foo.isSelected());
 
 
 
+        if (foo.isSelected()){
+
+            eventHandler.onItemCheck(foo);
+
+            System.out.println("It is selected "+foo.first_name+"--apikey---"+foo.apikey);
+
+        }else{
+
+
+            System.out.println("Sorry unselected data ");
+            eventHandler.onItemUncheck(foo);
+        }
+
+
+        notifyDataSetChanged();
 
 
 
-
-
+    }
+});
 
 
     }
@@ -239,8 +267,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
         private TextView userNameText,userDesignation,distance,expreience;
         private ImageView rlActionImage;
         private LinearLayout layout;
-        private CheckBox checkBox;
-        private View openresume;
+        private CheckedTextView checkBox;
+        private LinearLayout openresume;
         private ConstraintLayout detailwrap;
         private View itemview;
 
@@ -257,18 +285,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
          rlActionImage =    itemView.findViewById(R.id.rlActionImage);
          openresume =    itemView.findViewById(R.id.openresume);
          distance = itemView.findViewById(R.id.distance);
-         detailwrap = itemView.findViewById(R.id.pat_details_wrap);
+         detailwrap = itemView.findViewById(R.id.details_wrap);
          expreience = itemView.findViewById(R.id.expreience);
 
          layout = itemView.findViewById(R.id.bottomBarBtn);
 
          checkBox = itemView.findViewById(R.id.radioBtnSelectUser);
-
-
-
-
-
-
 
 
         }
@@ -302,7 +324,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
                    } else {
                        List<SearchDatamodel> filteredList = new ArrayList<>();
                        for (SearchDatamodel row : originalList) {
-
                            // name match condition. this might differ depending on your requirement
                            // here we are looking for name or phone number match
                            if (row.occupation.toLowerCase().contains(mSearchText.toLowerCase())) {
@@ -312,7 +333,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
                        list = filteredList;
                    }
-
                    FilterResults filterResults = new FilterResults();
                    filterResults.values = list;
                    return filterResults;

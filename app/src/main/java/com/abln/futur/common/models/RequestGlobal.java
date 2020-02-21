@@ -17,6 +17,20 @@ public class RequestGlobal {
     public String radius;
     public String industry;
 
+    public String parameter;
+
+    public String exp_from;
+    public String exp_to;
+
+
+
+    public String recruiterid;
+// public String canid;
+
+
+
+
+
 
 
 

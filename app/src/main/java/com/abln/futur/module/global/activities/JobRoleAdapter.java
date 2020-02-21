@@ -14,7 +14,10 @@ import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abln.futur.R;
+import com.abln.futur.common.ImageLoader;
+import com.abln.futur.common.UIUtility;
 import com.abln.futur.module.chats.adapter.GetAll_UserResponse;
+import com.bumptech.glide.Glide;
 
 import java.io.Serializable;
 import java.util.List;
@@ -30,6 +33,30 @@ public class JobRoleAdapter extends RecyclerView.Adapter<JobRoleAdapter.MyViewHo
     private Context mContext;
 
     private FolderClickListener mFolderClickListener;
+
+    private String[] resources= new String[] {
+            "ic_technology_s",
+            "ic_arts___entertainment_",
+            "ic_advertising_s",
+            "ic_beauty_wellness_s",
+            "ic_banking_s",
+            "ic_consulting_s",
+            "ic_construction_s",
+            "ic_driver__delivery_s",
+            "ic_education__academia_s",
+            "ic_events__promotion_s",
+            "ic_food___beverage_s",
+            "ic_government__politics_",
+            "ic_healthcare_s",
+            "ic_media__journalism_s",
+            "ic_manufacturing_s",
+            "ic_property_sales__letting_s",
+            "ic_travel__hospitality_s",
+            "ic_vc___investment_",
+            "ic_other_s"
+
+    };
+
 
     public JobRoleAdapter(Context context, List<GetAll_UserResponse.PatientList> moviesList, FolderClickListener folderClickListener) {
         this.moviesList = moviesList;
@@ -78,21 +105,41 @@ public class JobRoleAdapter extends RecyclerView.Adapter<JobRoleAdapter.MyViewHo
         final GetAll_UserResponse.PatientList data = moviesList.get(position);
 
         if (selectedPosition == position) {
-//            holder.itemView.setSelected(true); //using selector drawable
-            holder.rlJobRoles.setBackgroundColor(mContext.getResources().getColor(R.color.gradientCloudy_c2));
+
+
+
+                //            holder.itemView.setSelected(true); //using selector drawable
+                holder.rlJobRoles.setBackground(mContext.getDrawable(R.drawable.selected_bac));
+                Glide.with(mContext).load(UIUtility.getDrawableIdFromFileName(mContext,data.getUnphoto())).into(holder.jobRoleImg);
+
+
+
+
+
+
+
+
+
 
         } else {
 //            holder.itemView.setSelected(false);
-            holder.rlJobRoles.setBackgroundColor(mContext.getResources().getColor(R.color.color_white));
+          //  holder.rlJobRoles.setBackgroundColor(mContext.getResources().getColor(R.color.color_white));
+
+            Glide.with(mContext).load(UIUtility.getDrawableIdFromFileName(mContext,data.getPhoto())).into(holder.jobRoleImg);
+            holder.rlJobRoles.setBackground(mContext.getDrawable(R.drawable.indu_card));
+         //   Glide.with(mContext).load(UIUtility.getDrawableIdFromFileName(mContext,data.getPhoto())).into(holder.jobRoleImg);
+
 
         }
 
 
-        //  UIUtility.loadImage_Picasso_NoProgerss_local(mContext,data.getPhoto(),holder.jobRoleImg);
-        holder.jobRoleText.setText(data.getPatientId());
-        // UIUtility.loadImage_Picasso(data.getPhoto(),holder.img_eye,holder.storyProgress);
+        System.out.println("Image Holder"+data.getPhoto());
 
-        //Load animation
+
+
+
+
+
         final Animation slide_down = AnimationUtils.loadAnimation(mContext,
                 R.anim.slide_down);
 
@@ -100,14 +147,29 @@ public class JobRoleAdapter extends RecyclerView.Adapter<JobRoleAdapter.MyViewHo
                 R.anim.slide_up);
 
 
+        //TODO jobrolad commented by me  .
+
         holder.rlJobRoles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectedPosition = position;
-                notifyDataSetChanged();
-                mFolderClickListener.onPatientClicked(position);
+
+
+
+                    data.setUnphoto(resources[selectedPosition]);
+                    notifyDataSetChanged();
+
+                    mFolderClickListener.onPatientClicked(position);
+
+
+
             }
         });
+
+
+
+
+
 
         if (getItemCount() > PAGINATION_POSITION && position == getItemCount() - PAGINATION_POSITION) {
             mFolderClickListener.onScrollEnd(getItemCount());
@@ -146,8 +208,8 @@ public class JobRoleAdapter extends RecyclerView.Adapter<JobRoleAdapter.MyViewHo
         public MyViewHolder(View view) {
             super(view);
             jobRoleImg = view.findViewById(R.id.jobRoleImg);
-            jobRoleText = view.findViewById(R.id.jobRoleText);
-            rlJobRoles = view.findViewById(R.id.rlJobRoles);
+       //     jobRoleText = view.findViewById(R.id.jobRoleText);
+           rlJobRoles = view.findViewById(R.id.main_wrap);
 
         }
     }

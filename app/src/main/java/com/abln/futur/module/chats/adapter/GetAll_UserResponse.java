@@ -53,6 +53,10 @@ public class GetAll_UserResponse implements Serializable {
         @Expose
         private String photo;
 
+        @SerializedName("unphoto")
+        @Expose
+        private  String unphoto;
+
 
         public String getPatientId() {
             return patientId;
@@ -69,6 +73,15 @@ public class GetAll_UserResponse implements Serializable {
 
         public void setPhoto(String photo) {
             this.photo = photo;
+        }
+
+
+        public String getUnphoto(){
+            return  unphoto;
+        }
+
+        public void setUnphoto(String unphoto){
+            this.unphoto = unphoto;
         }
 
 

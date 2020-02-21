@@ -12,6 +12,7 @@ import com.abln.futur.common.models.ImageData;
 import com.abln.futur.common.models.Mkey;
 import com.abln.futur.common.models.ModelAnaly;
 import com.abln.futur.common.models.Mstories;
+import com.abln.futur.common.models.PostDatabase;
 import com.abln.futur.common.models.RequestGlobal;
 import com.abln.futur.common.models.SetUser;
 import com.abln.futur.common.models.TotalNumber;
@@ -313,6 +314,22 @@ public interface Handler {
 
     @POST("v1/users-search")
     Single<BaseResponse<AppliedData>> getusersearch(@Body RequestGlobal key);
+
+
+    @POST("v1/users-search2")
+    Single<BaseResponse<AppliedData>> getUserfilterData(@Body RequestGlobal key);
+
+
+
+
+
+
+    @POST("/v1/recruiter-post-info")
+    Single<BaseResponse<PostDatabase>> getpostusers(@Body RequestGlobal key);
+
+
+    @POST("/v1/send-rec-can")
+    Single<BaseResponse<JsonObject>> senduserpost(@Body RequestGlobal key);
 
 
 

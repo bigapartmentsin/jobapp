@@ -96,7 +96,7 @@ public class InboxItem extends RecyclerView.Adapter<InboxItem.ViewHolder> {
             public void onClick(View v) {
 
                 handler.onapplyClick();
-                Intent listapp = new Intent(mcontext, Analytics.class);
+                Intent listapp = new Intent(mcontext, ListApplicataints.class);
                 listapp.putExtra("data",foo.pid);
                 listapp.putExtra("name",foo.name.replace("Post",""));
                 mcontext.startActivity(listapp);

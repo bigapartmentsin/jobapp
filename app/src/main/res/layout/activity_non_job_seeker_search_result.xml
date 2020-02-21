@@ -52,9 +52,6 @@
 
         </ImageView>
 
-
-
-
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -62,7 +59,21 @@
         android:layout_below="@id/rlJobResult"
         android:layout_above="@id/searchJobsRole"
         android:layout_width="match_parent"
+        android:visibility="visible"
         android:layout_height="wrap_content"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/empty_states"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@id/rlJobResult"
+        android:src="@drawable/nocadidatefound"
+        android:layout_above="@id/searchJobsRole">
+
+
+    </ImageView>
 
 
     <EditText

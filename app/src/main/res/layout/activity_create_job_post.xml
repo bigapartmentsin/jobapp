@@ -66,7 +66,7 @@
         android:layout_marginBottom="5dp"
 
         android:imeOptions="actionNext"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:inputType="text|textMultiLine"
         android:textColor="@color/text_color_black"
         android:background="@null"
@@ -164,31 +164,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:text=" 3 -  yrs"/>
+                            android:text=""/>
 
-                        <com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar
+
+
+
+
+                        <com.jaygoo.widget.RangeSeekBar
                             android:id="@+id/rangeSeekbarEXP"
+                            android:layout_below="@id/tvExpYrs"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
-                            android:layout_marginBottom="30dp"
-                            android:layout_gravity="center"
-                            app:corner_radius="10"
-                            app:min_value="1"
-                            app:max_value="12"
-                            app:steps="1"
-                            app:bar_color="#CCCCCC"
-                            app:bar_highlight_color="#9060EB"
-                            app:left_thumb_image="@drawable/expcircle_"
-                            app:right_thumb_image="@drawable/expcircle_"
-                            app:left_thumb_image_pressed="@drawable/expcircle"
-                            app:right_thumb_image_pressed="@drawable/expcircle"
+                            android:max="12"
+                            app:rsb_progress_height="4dp"
+                            app:rsb_gravity="center"
+                            app:rsb_min_interval="1"
+                            app:rsb_max="12"
+                            app:rsb_min="0"
+                            app:rsb_indicator_width="50dp"
+                            app:rsb_mode="range"
+                            app:rsb_progress_color="#9060eb"
+                            app:rsb_thumb_inactivated_drawable="@drawable/exp_new"
+                            app:rsb_thumb_drawable="@drawable/exp_new"
+                            />
 
 
 
-                            app:data_type="_integer">
 
-                        </com.crystal.crystalrangeseekbar.widgets.BubbleThumbRangeSeekbar>
+
+
+
+
 
                     </RelativeLayout>
 
@@ -286,8 +292,6 @@
                 </LinearLayout>
 
 
-
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -330,10 +334,8 @@
                                 <Spinner
                                     android:id="@+id/inputspinner"
                                     android:layout_width="match_parent"
-
                                     android:layout_height="40dp"
                                     android:background="@drawable/input_date_border_prescription"
-
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/smsTxt"
                                      />

@@ -142,4 +142,7 @@ public class SearchDatamodel implements Serializable {
     public void setDistance(String distance) {
         this.distance = distance;
     }
+
+
+
 }

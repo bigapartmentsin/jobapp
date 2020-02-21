@@ -28,6 +28,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.util.Pair;
 import androidx.viewpager.widget.ViewPager;
@@ -35,6 +36,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.abln.futur.BuildConfig;
 import com.abln.futur.R;
 import com.abln.futur.RandomAct;
+import com.abln.futur.activites.ModelData;
 import com.abln.futur.common.postjobs.BaseBottomSheetDialogFragment;
 import com.abln.futur.common.postjobs.GetNormalpost;
 import com.abln.futur.common.postjobs.post;
@@ -42,6 +44,7 @@ import com.abln.futur.interfaces.NetworkOperation;
 import com.abln.futur.module.account.datamodel.GetLoginRequest;
 import com.abln.futur.module.global.activities.SearchAdapter;
 import com.abln.futur.services.NetworkOperationService;
+import com.abln.futur.stories.PlayerData;
 import com.abln.futur.utils.BitmapUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
@@ -52,6 +55,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonObject;
+import com.jaygoo.widget.OnRangeChangedListener;
+import com.jaygoo.widget.RangeSeekBar;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -72,6 +77,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -83,10 +90,16 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.Request;
 import okhttp3.RequestBody;
+import retrofit2.http.Multipart;
+import retrofit2.http.PartMap;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.MEDIA_PROJECTION_SERVICE;
+import static android.content.Context.SYSTEM_HEALTH_SERVICE;
 import static com.abln.chat.ui.helper.ChatMultiMediaHelper.getFilePathFromURI;
+import static com.abln.chat.ui.helper.ChatMultiMediaHelper.openGalleryToSelectImageOrVideo;
 import static com.abln.futur.common.UIUtility.dateFormatFun;
 
 
@@ -130,7 +143,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
     EditText cname_edit_text;
 
     @BindView(R.id.rangeSeekbarEXP)
-    CrystalRangeSeekbar rangeSeekbar;
+    RangeSeekBar rangeSeekbar;
 
     @BindView(R.id.tvExpYrs)
     TextView tvExp;
@@ -197,38 +210,171 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
         bindSpinnerDropDown(inputspinner, spinnerList);
 
         getdata();
-        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+
+
+        // fuc im changing so that the work will move on ;
+
+
+//
+//        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+//            @Override
+//            public void valueChanged(Number minValue, Number maxValue) {
+//
+//                tvvalue = minValue + " - " + maxValue + " Yrs";
+//
+//
+//                min = String.valueOf(minValue);
+//                max = String.valueOf(maxValue);
+//
+//
+//
+//
+//                if (min.equalsIgnoreCase(max)) {
+//                    tvExp.setText("12+");
+//                    min = "12";
+//                    max = "30";
+//
+//                } else {
+//                    tvExp.setText(minValue + " - " + maxValue + " Yrs");
+//                }
+//
+//
+//            }
+//        });
+
+
+
+        // new func has been added to work on it
+
+
+        rangeSeekbar.setProgress(0f,12f);
+        rangeSeekbar.setEnableThumbOverlap(false);
+        rangeSeekbar.setRange(0f,12f);
+
+        tvExp.setText("0+");
+
+
+        rangeSeekbar.setOnRangeChangedListener(new OnRangeChangedListener() {
             @Override
-            public void valueChanged(Number minValue, Number maxValue) {
+            public void onRangeChanged(RangeSeekBar view, float leftValue, float rightValue, boolean isFromUser) {
+                int  mleftvalue = Math.round(leftValue);
+                int  mRightvalue = Math.round(rightValue);
 
-                tvvalue = minValue + " - " + maxValue + " Yrs";
-
-
-                min = String.valueOf(minValue);
-                max = String.valueOf(maxValue);
+                System.out.println("leftvalue"+mleftvalue+"Rightvalue"+mRightvalue);
 
 
 
 
-                if (min.equalsIgnoreCase(max)) {
-                    tvExp.setText("12+");
-                    min = "12";
-                    max = "30";
 
-                } else {
-                    tvExp.setText(minValue + " - " + maxValue + " Yrs");
+
+                String a = String.valueOf(mleftvalue);
+                String b = String.valueOf(mRightvalue);
+
+
+                tvvalue = a + " - " + b + " Yrs";
+
+                min = String.valueOf(mleftvalue);
+                max = String.valueOf(mRightvalue);
+
+                if (a.equals("0") && b.equals("12")){
+
+                    tvExp.setText("0+ Yrs ");
                 }
 
+                else if (a.equals("1") && b.equals("12")){
+
+                    tvExp.setText("1+ Yrs");
+                }
+
+
+                else if (a.equals("2") && b.equals("12")){
+
+                    tvExp.setText("2+ Yrs ");
+                }
+
+                else if (a.equals("3") && b.equals("12")){
+
+                    tvExp.setText("3+ Yrs ");
+                }
+
+                else  if (a.equals("4") && b.equals("12")){
+
+                    tvExp.setText("4+ Yrs ");
+                }
+
+                else   if (a.equals("5") && b.equals("12")){
+
+                    tvExp.setText("5+ Yrs");
+                }
+
+                else   if (a.equals("6") && b.equals("12")){
+
+                    tvExp.setText("6+ Yrs");
+                }
+
+                else   if (a.equals("7") && b.equals("12")){
+
+                    tvExp.setText("7+ Yrs");
+                }
+
+                else   if (a.equals("8") && b.equals("12")){
+
+                    tvExp.setText("8+ Yrs ");
+                }
+
+                else   if (a.equals("9") && b.equals("12")){
+
+                    tvExp.setText("9+ Yrs");
+                }
+
+                else   if (a.equals("10") && b.equals("12")){
+
+                    tvExp.setText("10+ Yrs ");
+                }
+
+                else   if (a.equals("11") && b.equals("12")){
+
+                    tvExp.setText("11+ Yrs");
+                }
+
+                else{
+
+
+
+
+
+                    tvExp.setText(a + " - " + b + " Yrs");
+
+
+                }
+
+                // tvExpYrs.setText(String.valueOf(Math.round(leftValue))+"-"+String.valueOf(Math.round(rightValue)));
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(RangeSeekBar view, boolean isLeft) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(RangeSeekBar view, boolean isLeft) {
 
             }
         });
 
 
+
+
+
+
+        // range bar end function
+
         addPhotoSec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                // openImagePicker();
+
 
                 checkForPermissionAndTakeMultipleImagePdf();
             }
@@ -239,7 +385,7 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
             public void onClick(View v) {
 
                 showPlacePicker();
-                //dataLocation();
+
 
             }
         });
@@ -1481,13 +1627,10 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
 
     private void movingToNext(String je ) throws ParseException {
-
         Date date = new Date();
         String currentDate = new SimpleDateFormat("E dd MMM yyyy", Locale.getDefault()).format(new Date());
         System.out.println("Checking new date fromat"+currentDate);
-
         String newers[] = currentDate.split("\\s+");
-
         for (String a :newers
              ) {
 
@@ -1497,15 +1640,18 @@ public class NewJobPost extends BaseBottomSheetDialogFragment implements Locatio
 
 
 
-                                    String posted = newers[0]+" "+newers[1]+" "+newers[2];
-                            Intent i = new Intent(getActivity(),RandomAct.class);
-                            i.putExtra("title", jobtitletext.getText().toString());
-                            i.putExtra("comName", cname_edit_text.getText().toString());
-                            i.putExtra("exper",je) ;
-                            i.putExtra("fkey",finalkey);
-                            i.putExtra("date",posted);
-                            //time function for show in formate //
-                            startActivity(i);
+        //TODO check the posted image in backgorund ;
+
+//
+//                                    String posted = newers[0]+" "+newers[1]+" "+newers[2];
+//                            Intent i = new Intent(getActivity(),RandomAct.class);
+//                            i.putExtra("title", jobtitletext.getText().toString());
+//                            i.putExtra("comName", cname_edit_text.getText().toString());
+//                            i.putExtra("exper",je) ;
+//                            i.putExtra("fkey",finalkey);
+//                            i.putExtra("date",posted);
+//                            //time function for show in formate //
+//                            startActivity(i);
 
 
 

@@ -145,39 +145,59 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
     private List<GetAll_UserResponse.PatientList> mySGList = new ArrayList<>();
     private Context mContext;
     private NetworkOperationService mService;
-    private String[] resources = new String[]{
-            "global_ic_tech",
-            "global_ic_a_entertainment",
-            "global_ic_banking",
-            "global_ic_consulting",
-            "global_ic_media_gen",
-            "vc_investment",
-            "global_ic_edu_other",
-            "global_ic_gov_polit",
-            "global_ic_advt",
-            "property_sale",
-            "global_ic_construction",
-            "food_bevara",
-            "travel_spoer",
-            "global_ic_manufacturing",
-            "global_ic_others"
+    private String[] resources =  new String[]{
+            "ic_technology",
+            "ic_arts_entertainment",
+            "ic_advertising",
+            "ic_beauty__wellness",
+            "ic_banking_two",
+            "ic_consulting",
+            "ic_construction",
+            "ic_driver__delivery",
+            "ic_education__academia",
+            "ic_events__promotion",
+            "ic_food_beverage",
+            "ic_government__politics",
+            "ic_healthcare",
+            "ic_media__journalism",
+            "ic_manufacturing",
+            "ic_property_sales__letting",
+            "ic_travel__hospitality",
+            "ic_vc__investment",
+            "ic_other"
+
     };
+
+
+
+
     private String[] industry = new String[]{
             "Tech",
             "Arts & Entertainment",
+            "Advertising",
+            "Beauty & Wellness",
             "Banking",
             "Consulting",
-            "Media & Journalism",
-            "VC & Investment",
-            "Education & Academia",
-            "Governement & Politics",
-            "Advertising",
-            "Property Sales & Letting",
             "Construction",
+            "Driver & Delivery",
+            "Education & Academia",
+            "Events & Promotion",
             "Food & Beverages",
-            " Travel & Hospitality",
+            "Government & Politics",
+
+            "HealthCare",
+
+
+
+
+
+            "Media & Journalism",
             "Manufacturing",
-            "Others"};
+            "Property Sales & Letting",
+            "Travel & Hospitality",
+            "VC & Investment",
+            "Others"
+    };
 
     private int dialerHeight, dialerWidth;
     private GestureDetector detector;
@@ -653,7 +673,20 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
                 return;
             }
             Intent ii = new Intent(mContext, DatabaseUserSearch.class);
-         //   ii.putExtra("Angle", currAngle);
+
+
+
+            System.out.println("Job Category "+job_category+"Job"+industry[job_category]);
+            ii.putExtra("lat",prefManager.getLat());
+            ii.putExtra("lng",prefManager.getLon());
+            ii.putExtra("job",industry[job_category]);
+            ii.putExtra("radius",rollingvalue);
+            ii.putExtra("apikey",prefManager.getApikey());
+
+
+
+
+
             startActivity(ii);
 
 
@@ -672,6 +705,8 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
 
             rlGlobalView.setVisibility(View.VISIBLE);
             rlGlobalSearch.setVisibility(View.GONE);
+
+
         }
     }
 
@@ -680,6 +715,7 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
             GetAll_UserResponse.PatientList response = new GetAll_UserResponse.PatientList();
             response.setPatientId(industry[i]);
             response.setPhoto(resources[i]);
+
             mySGList.add(i, response);
         }
         mAdapter.notifyDataSetChanged();

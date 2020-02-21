@@ -1,10 +1,15 @@
 package com.abln.futur.activites;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,6 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -153,10 +159,18 @@ SplashActivity extends BaseActivity implements TaskCompleteListener {
     }
 
 
-
-
     private void startFunctions() {
         if (!mLocalSession.getApikey().equalsIgnoreCase(" ")) {
+
+
+            //todo fetching the device id to send notification over the network
+            //v1/user-device-info
+
+
+            //
+
+            getInforamtion();
+
             startActivity(new Intent(this, DashboardActivity.class));
             finish();
         } else {
@@ -164,6 +178,74 @@ SplashActivity extends BaseActivity implements TaskCompleteListener {
             finish();
         }
     }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void getInforamtion() {
+
+
+
+/*
+* ‘device_id’ => ‘1’,
+  ‘token’ => ‘2’,
+  ‘device_name’ => ‘3’,
+  ‘timestamp’ => ‘4’,
+  ‘lasttoken’ => ‘5’,
+  ‘os’ => ‘6’,
+  ‘imei_one’ => ‘7’,
+  ‘imei_two’ => ‘8’,
+  ‘platform’ => ‘9’,
+  ‘configuration’ => ‘10’,
+  ‘apikey’ => ‘11’*/
+
+
+
+
+        String android_id = Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        System.out.println("Getting device id over the network " + android_id);
+        //  727d43308fb07319
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        if (checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    Activity#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for Activity#requestPermissions for more details.
+            return;
+        }
+
+
+     System.out.println("Android Color"+ telephonyManager.getDeviceId());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            System.out.println("OS informtion"+telephonyManager.getImei());
+        }
+        System.out.println("Line number"+telephonyManager.getLine1Number());
+        System.out.println("Dont know "+telephonyManager.getNetworkOperator());
+        System.out.println("Network operation");
+        String subscriberId = telephonyManager.getSubscriberId();
+        System.out.println("Lets subscriberId"+subscriberId);
+    }
+
+
+    // send api to implement the data source ;
+
+
+
+    // ,oving the datahandler to the whole current operation and pushing the limit :
+
+
+
+
+
+
+
+
+
+
+
 
 
 

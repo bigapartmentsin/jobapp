@@ -54,6 +54,9 @@ public class FCMMessagingService extends FirebaseMessagingService {
 
     }
 
+
+
+
     private void processChatPushNotification(String message) {
         if (null == IMInstance.getInstance().getIMConfiguration()) {
             IMConfiguration imConfiguration = new IMConfiguration(null, getLoggedInUser(),//TODO

@@ -212,7 +212,6 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
     private ChatsViewFragment viewFragment;
 
     //
-
     private int index;
     private int currentTabIndex = 1;
     private PrefManager prefManager = new PrefManager();
@@ -266,8 +265,6 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
         epEditSpinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //  popupWindowCity.showAsDropDown(v, -5, 0);
 
                 setPopup();
 
@@ -1403,7 +1400,7 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
     private void s1(String value, String data, boolean enable) {
 
-///data/user/0/com.abln.futur/cache/download.jpeg
+
 
         File file = new File(data);
         RequestBody requestFile = RequestBody.create(MediaType.parse("*/*"), file);

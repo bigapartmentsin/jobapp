@@ -17,6 +17,7 @@ import android.os.Build;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -301,5 +302,21 @@ public class UIUtility {
         cursor.moveToFirst();
         return cursor.getString(column_index);
     }
+
+//    public static void loadImage_Picasso_NoProgerss_local(Context mContext,String url, ImageView imgView) {
+//        FLog.i(TAG,"mmmmmmmm before:"+url);
+//        if (url == null || url.length() == 0 ) {
+//            Picasso.get()
+//                    .load(R.drawable.sample_job_post)
+//                    .into(imgView);
+//        } else {
+//            FLog.i(TAG,"mmmmmmmm after:"+url);
+//            Picasso.get()
+//                    .load(getDrawableIdFromFileName(mContext,url))
+//                    .error(R.drawable.bg_no_preview)
+//                    .into(imgView);
+//
+//        }
+//    }
 
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:id="@+id/root_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+
+            android:id="@+id/wraper_savedimage"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="47dp"
+            android:background="@drawable/ic_bg_posterimage_inbox"
+            android:layout_height="67dp"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="37dp"
+                android:id="@+id/ivview"
+                app:cardCornerRadius="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#F6F6F6"
+                android:backgroundTint="#F6F6F6"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:id="@+id/saveimageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/dummy_image" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

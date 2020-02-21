@@ -14,7 +14,6 @@
         card_view:cardCornerRadius="0dp"
         card_view:cardElevation="0dp"
         card_view:cardUseCompatPadding="true"
-
         android:id="@+id/basicDetailSec"
         >
 
@@ -29,51 +28,58 @@
                 android:layout_height="match_parent">
 
 
-                <View
+                <LinearLayout
                     android:layout_width="350dp"
                     android:id="@+id/openresume"
                     android:tag="0"
-                    android:layout_height="70dp"/>
+                    android:layout_height="70dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:id="@+id/userIcon"
-                    android:src="@drawable/male_user">
-                </de.hdodenhof.circleimageview.CircleImageView>
 
-                <TextView
-                    android:id="@+id/userNameText"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/userIcon"
-                    android:textColor="#667480"
-                    android:lineHeight="15sp"
-                    android:fontFamily="@font/mulibold"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="12sp"
-                    android:text="Baskar Rao P" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:id="@+id/userIcon"
+                        android:src="@drawable/male_user">
+                    </de.hdodenhof.circleimageview.CircleImageView>
+
+                    <TextView
+                        android:id="@+id/userNameText"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/userIcon"
+                        android:textColor="#667480"
+                        android:lineHeight="15sp"
+                        android:fontFamily="@font/mulibold"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="12sp"
+                        android:text="Baskar Rao P" />
+
+
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/userDesignation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@id/userIcon"
-                    android:layout_below="@id/userNameText"
+                  android:layout_marginTop="30dp"
+                    android:layout_marginLeft="80dp"
                     android:textColor="#8E63E6"
                     android:lineHeight="13sp"
                     android:fontFamily="@font/muliregular"
                     android:text="Android Developer" />
 
-                <CheckBox
-                    android:id="@+id/radioBtnSelectUser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
 
+
+                <CheckedTextView
+                    android:id="@+id/radioBtnSelectUser"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+
+                    android:background="@drawable/ic_oval_unselected"
                     android:layout_alignParentEnd="true"
                     />
 
@@ -90,6 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=""
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/muliregular"
                     android:textSize="6sp"
                     android:id="@+id/distance"
@@ -101,6 +108,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_margin="5dp"
+
                     android:layout_below="@id/distance"
                     android:background="#AFBFC6"/>
 
@@ -117,10 +125,10 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/pat_details_wrap"
+        android:id="@+id/details_wrap"
         android:layout_width="match_parent"
         android:layout_height="192dp"
-
+        android:tag="0"
         android:elevation="0dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -300,13 +308,6 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
         </LinearLayout>
-
-
-
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

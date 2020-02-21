@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="0dp"
+    app:cardMaxElevation="1dp"
+    app:cardElevation="0.7dp"
+    app:contentPadding="10dp"
+    app:contentPaddingBottom="0dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    android:layout_width="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:background="#F2F2F2"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        >
+        <RelativeLayout
+            android:id="@+id/rlJobRoles"
+            android:background="@drawable/background_card_list_job"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/jobRoleImg"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_arts_entertainment">
+            </ImageView>
+            <TextView
+                android:id="@+id/jobRoleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Software "
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/jobRoleImg"
+                android:textSize="8dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+

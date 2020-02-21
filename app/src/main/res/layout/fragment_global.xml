@@ -54,7 +54,7 @@
         <RelativeLayout
             android:id="@+id/globalViewJobs"
             android:layout_width="wrap_content"
-            android:layout_height="170dp"
+            android:layout_height="220dp"
             android:visibility="gone">
 
             <View

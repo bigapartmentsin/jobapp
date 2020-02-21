@@ -1,18 +1,29 @@
 package com.abln.futur;
 
+import android.Manifest;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+
 import com.abln.futur.activites.BaseActivity;
 import com.abln.futur.interfaces.TaskCompleteListener;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Handshake;
 
 public class DuplicateActivity extends BaseActivity implements TaskCompleteListener {
 
@@ -72,10 +83,6 @@ public class DuplicateActivity extends BaseActivity implements TaskCompleteListe
     }
 
 
-    private void getData() {
-
-
-    }
 
     private void useData() {
         ButterKnife.bind(this);
@@ -88,4 +95,54 @@ public class DuplicateActivity extends BaseActivity implements TaskCompleteListe
 
         Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
     }
+
+
+
+
+
+
+
+
+
+
+    // creating
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void getVersion(){
+
+
+
+
+         }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void getDeviceInformation(){
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+    public void sendingINfor(){
+
+
+        //
+    }
+
+
 }
