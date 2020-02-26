@@ -39,7 +39,7 @@ public class JobRoleAdapter extends RecyclerView.Adapter<JobRoleAdapter.MyViewHo
             "ic_arts___entertainment_",
             "ic_advertising_s",
             "ic_beauty_wellness_s",
-            "ic_banking_s",
+            "ic_banking_selected",
             "ic_consulting_s",
             "ic_construction_s",
             "ic_driver__delivery_s",
@@ -49,9 +49,9 @@ public class JobRoleAdapter extends RecyclerView.Adapter<JobRoleAdapter.MyViewHo
             "ic_government__politics_",
             "ic_healthcare_s",
             "ic_media__journalism_s",
-            "ic_manufacturing_s",
+            "ic_manufacturing_selected_new",
             "ic_property_sales__letting_s",
-            "ic_travel__hospitality_s",
+            "ic_travel___hospitality_selected_",
             "ic_vc___investment_",
             "ic_other_s"
 

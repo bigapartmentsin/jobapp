@@ -37,6 +37,45 @@ public interface Handler {
 
 
 
+    @POST("/v1/show-invites")
+    Single<BaseResponse<AdModule>> getusers(@Body AccountOne key);
+
+
+    @POST("{a}")
+    Single<BaseResponse<JsonObject>> checkresume(@Path(value = "a",encoded = true) String info ,@Body AccountOne search);
+
+
+    @Multipart
+    @POST("v1/update-resume")
+    Single<BaseResponse<JsonObject>> uploadpdf(@PartMap() Map<String, RequestBody> data, @Part MultipartBody.Part file);
+
+
+
+
+
+    @POST("{a}")
+    Single<BaseResponse<JobData>> updateinfo(@Path(value = "a",encoded = true) String info,@Body UpdateKey key);
+
+
+    @POST("{a}")
+    Single<BaseResponse<JsonObject>> onApply(@Path(value = "a",encoded = true) String info ,@Body post data);
+
+
+    @POST("{a}")
+    Single<BaseResponse<JsonObject>> onSaved(@Path(value = "a",encoded = true)String info ,@Body post data);
+
+
+
+
+    @POST("{a}")
+    Single<BaseResponse<Mstories>> getstories(@Path(value = "a",encoded = true) String info,@Body Mkey key);
+
+
+
+
+
+
+
 
 
 }

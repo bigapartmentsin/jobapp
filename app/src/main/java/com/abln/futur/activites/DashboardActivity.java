@@ -272,6 +272,9 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
         });
 
 
+
+
+
         initLocation();
 
        // chatsFragment = new ChatsFragment();
@@ -280,10 +283,6 @@ public class DashboardActivity extends BaseActivity implements TaskCompleteListe
 
 
         viewFragment = new ChatsViewFragment();
-
-
-
-
         fragmentArrayList = new ArrayList<>();
         fragmentArrayList.add(viewFragment);
         fragmentArrayList.add(globalFragment);

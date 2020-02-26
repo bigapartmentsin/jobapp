@@ -483,24 +483,9 @@ private ArrayList<SearchDatamodel> selecteddata = new ArrayList<>();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private PostItems inboxitem;
     private void getsaveddata() {
+
         RequestGlobal datahandel = new RequestGlobal();
         datahandel.apikey = prefManager.getApikey();
         compositeDisposable.add(apiService.getpostusers(datahandel)
@@ -509,11 +494,14 @@ private ArrayList<SearchDatamodel> selecteddata = new ArrayList<>();
                 .subscribeWith(new GlobalSingleCallback<BaseResponse<PostDatabase>>(false, this) {
                     @Override
                     public void onApiSuccess(BaseResponse baseResponse) {
+
                         PostDatabase data_list = (PostDatabase) baseResponse.data;
                         ArrayList<PostDataModel>  final_list = data_list.post_list;
                         inboxitem = new PostItems(DatabaseUserSearch.this, final_list,DatabaseUserSearch.this);
                         recyclerView.setAdapter(inboxitem);
                         bts.show();
+
+
                     }
 
                     @Override

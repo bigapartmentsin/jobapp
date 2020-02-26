@@ -30,16 +30,31 @@ import com.abln.chat.core.model.IMChatMessageStatus;
 import com.abln.chat.core.model.IMChatRoomDetail;
 import com.abln.chat.core.model.IMChatRoomDetailUpdate;
 import com.abln.chat.core.model.IMChatUser;
+import com.abln.chat.ui.activities.IMChatActivity;
 import com.abln.chat.ui.activities.IMChatThreadListActivity;
 import com.abln.chat.ui.adapters.IMChatThreadRecyclerAdapter;
+import com.abln.chat.ui.adapters.JobDataAdapter;
 import com.abln.chat.ui.helper.ChatHelper;
+import com.abln.chat.utils.AccountOne;
+import com.abln.chat.utils.AdModule;
+import com.abln.chat.utils.AdapterInvite;
+import com.abln.chat.utils.Admod;
+import com.abln.chat.utils.BaseResponse;
+import com.abln.chat.utils.BaseView;
+import com.abln.chat.utils.GlobalSingleCallback;
 import com.abln.chat.utils.IMSoftKeyboard;
+import com.abln.chat.utils.ModChat;
+import com.abln.chat.utils.Models;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 import jp.wasabeef.recyclerview.animators.FadeInLeftAnimator;
 
 import static com.abln.chat.ui.activities.IMBaseActivity.isAppInForeGround;
@@ -50,9 +65,11 @@ import static com.abln.chat.ui.activities.IMBaseActivity.isScreenInForeGround;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChatsViewFragment extends Fragment implements IMBaseListener {
+public class ChatsViewFragment extends Fragment implements IMBaseListener, BaseView ,AdapterInvite.clickHandler{
 
 
+    protected CompositeDisposable compositeDisposable;
+    protected com.abln.chat.utils.Handler apiService;
     private static final String TAG = "ChatsViewFragmet";
     private RecyclerView mChatHistoryRecyclerView;
     private IMChatThreadRecyclerAdapter mIMChatThreadRecyclerAdapter;
@@ -91,12 +108,28 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mContext = getActivity();
+        apiService = com.abln.chat.utils.Service.getApiService();
+        compositeDisposable = new CompositeDisposable();
         setLoggedInUser();
         setBundleData();
         initViews(view);
         initControlInitials();
         attachKeyboardListeners();
+
+
+        getInvites(mLoggedInUser.userId);
+        recyclerViewinvit.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+
+
     }
+
+
+
+
+
+
+
+
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
@@ -113,22 +146,31 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
         mContextId = getActivity().getIntent().getStringExtra("Context_Id");
         mContextName = getActivity().getIntent().getStringExtra("Context_Name");
 
-
         if (null != bundle) {
 
         }
+    }
+
+
+    private void setDataRetrival(String key){
+
+        //  first om nam shivaya
+
 
 
     }
 
-
+private RelativeLayout r1;
     private void initViews(View view) {
+
+        recyclerViewinvit = (RecyclerView) view.findViewById(R.id.recycler_stories) ;
         activityRootView = (RelativeLayout) view.findViewById(R.id.im_rl_activity_chat_history);
         mChatHistoryRecyclerView = (RecyclerView) view.findViewById(R.id.im_rv_chat_history);
         mTvNoChatHistory = (TextView) view.findViewById(R.id.im_tv_no_chat_history);
         mLaunchNewChatThread = (FloatingActionButton) view.findViewById(R.id.im_fl_start_new_chat_thread);
         mLaunchNewChatThread.setImageDrawable(getResources().getDrawable(R.drawable.im_ic_add_fab));
         mLaunchNewChatThread.setOnClickListener(onNewChatThreadClickListener);
+        r1 = (RelativeLayout) view.findViewById(R.id.r1);
     }
 
     private void initControlInitials() {
@@ -334,14 +376,13 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
             IMInstance.getInstance().setIMBaseListener(this);
         }
         if (firstVisit) {
-            //do stuff for first visit only
-
-            //TODO commintig updatechathistory
 
             updateChatHistory();
             firstVisit = false;
         }
-        Log.d(TAG,"onresume");
+
+
+        getInvites(mLoggedInUser.userId);
     }
 
     @Override
@@ -433,4 +474,84 @@ public class ChatsViewFragment extends Fragment implements IMBaseListener {
     }
 
 
+
+
+    /// thats is the main data source to handle the informaiton
+    RecyclerView recyclerViewinvit;
+AdapterInvite inboxitem;
+    private void getInvites(String key ){
+        AccountOne accountOne = new AccountOne();
+      //  accountOne.candidate_id = "c36934b50f187e72956d57bedf6e5aa2";
+
+        accountOne.candidate_id = key;
+
+        compositeDisposable.add(apiService.getusers(accountOne)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new GlobalSingleCallback<BaseResponse<AdModule>>(true, this) {
+                    @Override
+                    public void onApiSuccess(BaseResponse baseResponse) {
+
+                        if (baseResponse.statuscode == 1) {
+                            r1.setVisibility(View.VISIBLE);
+                            AdModule data_list = (AdModule) baseResponse.data;
+                            ArrayList<Admod>  final_list = data_list.invites;
+                            inboxitem = new AdapterInvite(getActivity(), final_list,ChatsViewFragment.this);
+                            recyclerViewinvit.setAdapter(inboxitem);
+
+
+
+
+                        } else if (baseResponse.statuscode == 0) {
+
+
+                            r1.setVisibility(View.GONE);
+
+
+
+
+
+
+                        }
+
+
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Throwable e) {
+
+                    }
+                }));
+
+
+
+    }
+
+
+    @Override
+    public void showProgress(String text) {
+
+    }
+
+    @Override
+    public void dismissProgress() {
+
+    }
+
+    @Override
+    public void showInternetError() {
+
+    }
+
+    @Override
+    public void showErrorDialog(String title, String description, String positiveBtn) {
+
+    }
+
+    @Override
+    public void datarefresh() {
+        getInvites(mLoggedInUser.userId);
+    }
 }

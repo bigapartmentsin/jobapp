@@ -48,20 +48,7 @@ public class UIUtility {
     public static final int ANIMATING_TIME = 500;
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 123;
 
-//    public static void loadImage(Context context, String url, ImageView imgView) {
-//        FLog.i(TAG,"mmmmmmmm before:"+url);
-//        if (url == null || url.length() == 0 ) {
-//            Glide.with(context)
-//                    .load(R.drawable.bg_no_preview)
-//                    .into(imgView);
-//        } else {
-//            FLog.i(TAG,"mmmmmmmm after:"+url);
-//            Glide.with(context)
-//                    .load(url)
-//                    .error(R.drawable.bg_no_preview)
-//                    .into(imgView);
-//        }
-//    }
+
     private static final int PADDING = 10;
 
     public static int getScreenWidth() {
@@ -303,20 +290,5 @@ public class UIUtility {
         return cursor.getString(column_index);
     }
 
-//    public static void loadImage_Picasso_NoProgerss_local(Context mContext,String url, ImageView imgView) {
-//        FLog.i(TAG,"mmmmmmmm before:"+url);
-//        if (url == null || url.length() == 0 ) {
-//            Picasso.get()
-//                    .load(R.drawable.sample_job_post)
-//                    .into(imgView);
-//        } else {
-//            FLog.i(TAG,"mmmmmmmm after:"+url);
-//            Picasso.get()
-//                    .load(getDrawableIdFromFileName(mContext,url))
-//                    .error(R.drawable.bg_no_preview)
-//                    .into(imgView);
-//
-//        }
-//    }
 
 }

@@ -25,7 +25,11 @@ public class RequestGlobal {
 
 
     public String recruiterid;
-// public String canid;
+
+
+    public String  candidate_id;
+
+
 
 
 

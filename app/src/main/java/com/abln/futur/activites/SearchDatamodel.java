@@ -23,6 +23,9 @@ public class SearchDatamodel implements Serializable {
 
     private boolean isSelected;
 
+
+    private boolean isviewedclicked;
+
 //------- handling the isselected  ---- //
 
     public boolean isSelected() {
@@ -35,6 +38,23 @@ public class SearchDatamodel implements Serializable {
 
 
     //------- handling the isselected  ---- //
+
+
+
+    ///------ handling the view click ---------//
+
+
+    public boolean isViewClicked(){
+        return  isviewedclicked;
+    }
+
+
+    public void setIsviewedclicked(boolean isviewedclicked){
+        this.isviewedclicked = isviewedclicked;
+    }
+
+    ///-----
+
 
 
 

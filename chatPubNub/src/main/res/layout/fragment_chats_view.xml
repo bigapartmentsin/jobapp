@@ -8,11 +8,38 @@
 
 <!--    <include layout="@layout/im_toolbar" />-->
 
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/r1"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_stories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="2dp"
+            android:id="@+id/lineID"
+            android:layout_below="@id/recycler_stories"
+            android:background="@color/blue"/>
+
+
+
+
+    </RelativeLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/im_rv_chat_history"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/im_toolbar"
+        android:layout_below="@+id/r1"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/p_5_t_5" />
 

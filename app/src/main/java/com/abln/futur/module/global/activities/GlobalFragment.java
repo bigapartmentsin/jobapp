@@ -160,13 +160,14 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
             "ic_government__politics",
             "ic_healthcare",
             "ic_media__journalism",
-            "ic_manufacturing",
+            "ic_manufacturing_new",
             "ic_property_sales__letting",
-            "ic_travel__hospitality",
+            "ic_travel__hospitality_new",
             "ic_vc__investment",
             "ic_other"
 
     };
+
 
 
 
@@ -184,13 +185,7 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
             "Events & Promotion",
             "Food & Beverages",
             "Government & Politics",
-
             "HealthCare",
-
-
-
-
-
             "Media & Journalism",
             "Manufacturing",
             "Property Sales & Letting",
@@ -226,12 +221,10 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
         }
     }
 
-
+//Driver & Delivery
 
 
     private void getFullData() {
-
-
         compositeDisposable.add(apiService.getfulldata("v1/full-title")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -676,17 +669,17 @@ public class GlobalFragment extends BaseNewFragment implements TaskCompleteListe
 
 
 
+
+
             System.out.println("Job Category "+job_category+"Job"+industry[job_category]);
+
+
+            System.out.println("Edit Category"+job_category+"Job category");
             ii.putExtra("lat",prefManager.getLat());
             ii.putExtra("lng",prefManager.getLon());
             ii.putExtra("job",industry[job_category]);
             ii.putExtra("radius",rollingvalue);
             ii.putExtra("apikey",prefManager.getApikey());
-
-
-
-
-
             startActivity(ii);
 
 

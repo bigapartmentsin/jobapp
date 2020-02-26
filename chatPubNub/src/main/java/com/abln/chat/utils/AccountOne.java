@@ -11,5 +11,10 @@ public class AccountOne implements Serializable {
     public String reciever;
     public String sender;
 
+    public String candidate_id;
+
+    public String apikey;
+
+
 
 }

@@ -925,14 +925,6 @@ public class DataView extends NewBaseActivity implements ItemAdapter.clickHandle
 
 
 
-                            /*
-                            *
-                            *   String key = finalDataSets.pid ;
-        String uid = finalDataSets.uid;
-        String apply = finalDataSets.jexpstatus;
-        String star = finalDataSets.isstarred;
-                            *
-                            * */
 
                             Intent i = new Intent(DataView.this, RenderPdfView.class);
                             i.putExtra("pdf",url+da.pdf);

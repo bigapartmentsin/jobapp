@@ -29,7 +29,7 @@
 
 
                 <LinearLayout
-                    android:layout_width="350dp"
+                    android:layout_width="300dp"
                     android:id="@+id/openresume"
                     android:tag="0"
                     android:layout_height="70dp">
@@ -54,8 +54,6 @@
                         android:layout_marginLeft="20dp"
                         android:textSize="12sp"
                         android:text="Baskar Rao P" />
-
-
 
                 </LinearLayout>
 
@@ -128,7 +126,6 @@
         android:id="@+id/details_wrap"
         android:layout_width="match_parent"
         android:layout_height="192dp"
-        android:tag="0"
         android:elevation="0dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -293,7 +290,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:gravity="bottom|center"
-            android:visibility="visible"
+            android:visibility="gone"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

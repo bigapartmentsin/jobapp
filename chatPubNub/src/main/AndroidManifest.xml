@@ -15,7 +15,25 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
     <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS"/>
 
-    <application android:allowBackup="false">
+    <application android:allowBackup="false"
+
+
+        >
+
+
+        <activity android:name=".utils.RenderPdfView"
+
+            android:screenOrientation="portrait"
+            >
+
+
+        </activity>
+
+
+        <activity android:name=".utils.StoriesActivity">
+
+
+        </activity>
 
         <activity android:name=".utils.PdfViewer">
 

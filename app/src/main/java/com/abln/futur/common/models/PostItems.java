@@ -9,13 +9,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abln.futur.R;
 import com.abln.futur.common.ImageLoader;
-import com.abln.futur.common.InboxItem;
-import com.abln.futur.common.ModChat;
 import com.abln.futur.common.UIUtility;
 
 import java.util.ArrayList;
@@ -64,9 +61,6 @@ public class PostItems extends RecyclerView.Adapter<PostItems.ViewHolder> {
 
 
                 UIUtility.showToastMsg_withSuccessShort(mcontext,"Click PostName"+foo.job_title);
-
-
-
 
                 //handler.onapplyClick();
                 handler.onapplyClick(foo);

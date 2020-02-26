@@ -23,9 +23,6 @@ import io.fabric.sdk.android.Fabric;
 //Chat
 
 
-/**
- * Created by Bharath on 06/22/2019.
- */
 public class AppConfig extends Application {
     public static final boolean FEATURE_SECURE_CONNECTION = AppConfig.isReleaseBuild();
     public static final String TAG = AppConfig.class.getSimpleName();
